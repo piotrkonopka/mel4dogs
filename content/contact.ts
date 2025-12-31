@@ -5,79 +5,79 @@ import type { CTAButton } from "@/lib/types";
  * Form fields and validation messages
  */
 export const contactForm = {
-  title: "Book Your Consultation",
-  subtitle: "Let's discuss how I can help you and your dog",
+  title: "Umów konsultację",
+  subtitle: "Porozmawiajmy o tym, jak mogę pomóc Tobie i Twojemu psu",
   fields: {
     name: {
-      label: "Your Name",
+      label: "Imię i nazwisko",
       placeholder: "Jan Kowalski",
       required: true,
-      errorMessage: "Please enter your name",
+      errorMessage: "Proszę podać imię i nazwisko",
     },
     email: {
-      label: "Email Address",
+      label: "Adres email",
       placeholder: "jan@example.com",
       required: true,
-      errorMessage: "Please enter a valid email address",
+      errorMessage: "Proszę podać prawidłowy adres email",
     },
     phone: {
-      label: "Phone Number",
+      label: "Numer telefonu",
       placeholder: "+48 123 456 789",
       required: true,
-      errorMessage: "Please enter your phone number",
+      errorMessage: "Proszę podać numer telefonu",
     },
     dogName: {
-      label: "Dog's Name",
+      label: "Imię psa",
       placeholder: "Burek",
       required: false,
     },
     dogAge: {
-      label: "Dog's Age",
-      placeholder: "3 years",
+      label: "Wiek psa",
+      placeholder: "3 lata",
       required: false,
     },
     dogBreed: {
-      label: "Dog's Breed",
+      label: "Rasa psa",
       placeholder: "Golden Retriever",
       required: false,
     },
     service: {
-      label: "Service Interested In",
-      placeholder: "Select a service",
+      label: "Interesująca usługa",
+      placeholder: "Wybierz usługę",
       required: true,
-      errorMessage: "Please select a service",
+      errorMessage: "Proszę wybrać usługę",
       options: [
-        "Behavior Consultation",
-        "Basic Obedience Training",
-        "Advanced Training Package",
-        "Puppy Socialization Program",
-        "Reactivity Management Program",
-        "Single Private Session",
-        "Not sure - need advice",
+        "Konsultacje behawioralne",
+        "Szczeniaczkowo",
+        "Spacery socjalizacyjne",
+        "Nosework",
+        "Warsztaty i eventy",
+        "Obozy",
+        "Nie jestem pewien/pewna - potrzebuję porady",
       ],
     },
     message: {
-      label: "Tell Me About Your Situation",
+      label: "Opisz swoją sytuację",
       placeholder:
-        "Describe the behavior issues or training goals you'd like to address...",
+        "Opisz problemy behawioralne lub cele treningowe, które chcesz osiągnąć...",
       required: true,
-      errorMessage: "Please describe what you need help with",
+      errorMessage: "Proszę opisać, w czym potrzebujesz pomocy",
       rows: 5,
     },
   },
   submitButton: {
-    text: "Send Message",
-    loadingText: "Sending...",
+    text: "Wyślij wiadomość",
+    loadingText: "Wysyłanie...",
   },
   successMessage: {
-    title: "Message Sent Successfully!",
+    title: "Wiadomość wysłana pomyślnie!",
     description:
-      "Thank you for contacting us. I'll get back to you within 24 hours to discuss your needs and schedule a consultation.",
+      "Dziękuję za kontakt. Odezwę się w ciągu 24 godzin, aby omówić Twoje potrzeby i umówić konsultację.",
   },
   errorMessage: {
-    title: "Something Went Wrong",
+    title: "Coś poszło nie tak",
     description:
-      "Unable to send your message. Please try again or contact us directly via email or phone.",
+      "Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio przez email lub telefon.",
   },
 } as const;
 
@@ -88,11 +88,11 @@ export const contactForm = {
 export const ctaSections = {
   // Main CTA in hero
   hero: {
-    title: "Ready to Transform Your Dog's Behavior?",
+    title: "Gotowy/a na zmianę zachowania Twojego psa?",
     description:
-      "Book a free 15-minute phone consultation to discuss your dog's needs.",
+      "Umów bezpłatną 15-minutową konsultację telefoniczną, aby omówić potrzeby Twojego psa.",
     button: {
-      text: "Get Started Today",
+      text: "Zacznij dzisiaj",
       href: "#contact",
       variant: "primary",
     } as CTAButton,
@@ -100,24 +100,24 @@ export const ctaSections = {
 
   // CTA after services section
   afterServices: {
-    title: "Not Sure Which Service Is Right for You?",
+    title: "Nie jesteś pewien/pewna, która usługa jest dla Ciebie?",
     description:
-      "Every dog is unique. Let's talk about your specific situation and find the best approach.",
+      "Każdy pies jest wyjątkowy. Porozmawiajmy o Twojej konkretnej sytuacji i znajdźmy najlepsze rozwiązanie.",
     button: {
-      text: "Schedule Free Consultation",
+      text: "Umów bezpłatną konsultację",
       href: "#contact",
       variant: "primary",
     } as CTAButton,
-    note: "No obligation - just a friendly chat about your dog's needs",
+    note: "Bez zobowiązań - po prostu przyjazna rozmowa o potrzebach Twojego psa",
   },
 
   // CTA after testimonials
   afterTestimonials: {
-    title: "Join Hundreds of Happy Dog Owners",
+    title: "Dołącz do setek zadowolonych opiekunów psów",
     description:
-      "Start your journey to a happier, better-behaved dog. Professional support every step of the way.",
+      "Zacznij swoją drogę do szczęśliwszego i lepiej wychowanego psa. Profesjonalne wsparcie na każdym kroku.",
     button: {
-      text: "Book Your Session",
+      text: "Umów swoją sesję",
       href: "#contact",
       variant: "primary",
     } as CTAButton,
@@ -125,11 +125,11 @@ export const ctaSections = {
 
   // Emergency/urgent help CTA
   urgentHelp: {
-    title: "Need Immediate Help?",
+    title: "Potrzebujesz pilnej pomocy?",
     description:
-      "Dealing with a serious behavioral issue? Contact me directly for priority scheduling.",
+      "Masz do czynienia z poważnym problemem behawioralnym? Skontaktuj się bezpośrednio w celu priorytetowego umówienia.",
     button: {
-      text: "Call Now: +48 123 456 789",
+      text: "Zadzwoń teraz: +48 123 456 789",
       href: "tel:+48123456789",
       variant: "secondary",
     } as CTAButton,
@@ -142,9 +142,9 @@ export const ctaSections = {
  */
 export const contactSection = {
   heading: "Skontaktuj się z nami",
-  subheading: "Let's Work Together",
+  subheading: "Pracujmy razem",
   description:
-    "Ready to start training or have questions? Fill out the form below or reach out directly. I typically respond within 24 hours.",
+    "Gotowy/a na rozpoczęcie treningu lub masz pytania? Wypełnij formularz poniżej lub skontaktuj się bezpośrednio. Zazwyczaj odpowiadam w ciągu 24 godzin.",
 
   // Contact methods
   methods: [
@@ -157,15 +157,15 @@ export const contactSection = {
     },
     {
       type: "phone",
-      label: "Phone",
+      label: "Telefon",
       value: "+48 123 456 789",
       href: "tel:+48123456789",
       icon: "phone",
     },
     {
       type: "location",
-      label: "Location",
-      value: "Wrocław, Poland",
+      label: "Lokalizacja",
+      value: "Wrocław, Polska",
       href: "https://maps.google.com/?q=Wrocław,Poland",
       icon: "map",
     },
@@ -173,16 +173,16 @@ export const contactSection = {
 
   // Service area information
   serviceArea: {
-    title: "Service Area",
+    title: "Obszar działania",
     description:
-      "I primarily serve Wrocław and surrounding areas within 30km. For clients outside this area, online consultations are available.",
+      "Głównie obsługuję Wrocław i okolice w promieniu 30km. Dla klientów spoza tego obszaru dostępne są konsultacje online.",
   },
 
   // Availability info
   availability: {
-    title: "Availability",
+    title: "Dostępność",
     description:
-      "Training sessions available Monday-Saturday. Evening and weekend appointments can be arranged.",
+      "Sesje treningowe dostępne od poniedziałku do soboty. Możliwe są umówienia wieczorne i weekendowe.",
   },
 } as const;
 
@@ -191,19 +191,19 @@ export const contactSection = {
  * Offer valuable content in exchange for email
  */
 export const leadMagnet = {
-  title: "Free Dog Training Guide",
+  title: "Darmowy przewodnik po treningu psów",
   description:
-    "Download our comprehensive guide: '5 Essential Commands Every Dog Should Know' - complete with step-by-step instructions.",
+    "Pobierz nasz kompleksowy przewodnik: '5 podstawowych komend, które każdy pies powinien znać' - z instrukcjami krok po kroku.",
   benefits: [
-    "Easy-to-follow training steps",
-    "Common mistakes to avoid",
-    "Troubleshooting tips",
-    "Video demonstrations (QR codes included)",
+    "Łatwe do śledzenia kroki treningowe",
+    "Najczęstsze błędy, których należy unikać",
+    "Wskazówki rozwiązywania problemów",
+    "Demonstracje wideo (zawarte kody QR)",
   ],
   cta: {
-    text: "Download Free Guide",
+    text: "Pobierz darmowy przewodnik",
     href: "#download",
     variant: "primary",
   } as CTAButton,
-  disclaimer: "We respect your privacy. Unsubscribe anytime.",
+  disclaimer: "Szanujemy Twoją prywatność. Możesz wypisać się w każdej chwili.",
 } as const;

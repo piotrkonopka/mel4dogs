@@ -36,7 +36,7 @@ export function Testimonials() {
               {testimonial.rating && (
                 <div
                   className="mb-4 flex gap-1"
-                  aria-label={`Rating: ${testimonial.rating} out of 5 stars`}
+                  aria-label={`Ocena: ${testimonial.rating} na 5 gwiazdek`}
                 >
                   {[...Array(5)].map((_, i) => (
                     <svg
