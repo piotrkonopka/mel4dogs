@@ -32,9 +32,9 @@ export function Header() {
           <Link
             href="/"
             className="text-xl font-bold text-gray-900 transition-colors hover:text-orange-600 md:text-2xl"
-            aria-label="MELLI dogs - strona główna"
+            aria-label="MEL4 dogs - strona główna"
           >
-            <span className="text-orange-600">MELLI</span>{" "}
+            <span className="text-orange-600">MEL4</span>{" "}
             <span className="text-blue-600">dogs</span>
           </Link>
 
@@ -69,7 +69,7 @@ export function Header() {
             className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-orange-600 focus:outline-none focus:ring-inset md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
-            aria-label="Toggle menu"
+            aria-label="Przełącz menu"
           >
             <span className="sr-only">
               {isMenuOpen ? "Zamknij menu" : "Otwórz menu"}

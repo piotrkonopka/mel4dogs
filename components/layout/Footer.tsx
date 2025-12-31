@@ -29,9 +29,9 @@ export function Footer() {
             <Link
               href="/"
               className="text-2xl font-bold text-white"
-              aria-label="MELLI dogs - strona główna"
+              aria-label="MEL4 dogs - strona główna"
             >
-              <span className="text-orange-500">MELLI</span>{" "}
+              <span className="text-orange-500">MEL4</span>{" "}
               <span className="text-blue-500">dogs</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed">

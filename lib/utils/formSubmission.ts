@@ -55,7 +55,7 @@ export async function submitToFirebase(
       body: JSON.stringify({
         ...data,
         timestamp: new Date().toISOString(),
-        source: "melli-dogs-website",
+        source: "mel4dogs-website",
       }),
     });
 

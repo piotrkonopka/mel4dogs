@@ -141,7 +141,7 @@ export const ctaSections = {
  * Information displayed in contact section
  */
 export const contactSection = {
-  heading: "Get in Touch",
+  heading: "Skontaktuj się z nami",
   subheading: "Let's Work Together",
   description:
     "Ready to start training or have questions? Fill out the form below or reach out directly. I typically respond within 24 hours.",
@@ -151,8 +151,8 @@ export const contactSection = {
     {
       type: "email",
       label: "Email",
-      value: "kontakt@mellidogs.pl",
-      href: "mailto:kontakt@mellidogs.pl",
+      value: "kontakt@mel4dogs.pl",
+      href: "mailto:kontakt@mel4dogs.pl",
       icon: "mail",
     },
     {

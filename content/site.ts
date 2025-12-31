@@ -11,11 +11,11 @@ import type {
  */
 
 export const siteInfo = {
-  name: "MELLI dogs",
-  tagline: "Professional Dog Behaviorist & Training Services",
+  name: "MEL4 dogs",
+  tagline: "Profesjonalna behawiorystyka i trening psów",
   description:
-    "Expert dog behavior consultation and training services in Wrocław. Helping you build a harmonious relationship with your four-legged friend through positive reinforcement methods.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://mellidogs.pl",
+    "Eksperckie konsultacje behawioralne i usługi treningowe dla psów we Wrocławiu. Pomagamy budować harmonijną relację z Twoim czworonożnym przyjacielem poprzez metody pozytywnego wzmocnienia.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://mel4dogs.pl",
 } as const;
 
 /**
@@ -24,29 +24,29 @@ export const siteInfo = {
  */
 export const navigation: NavItem[] = [
   {
-    label: "Home",
+    label: "Start",
     href: "/",
-    description: "Return to homepage",
+    description: "Powrót do strony głównej",
   },
   {
-    label: "Services",
+    label: "Usługi",
     href: "/#services",
-    description: "View our training services",
+    description: "Zobacz nasze usługi treningowe",
   },
   {
-    label: "About",
+    label: "O nas",
     href: "/#about",
-    description: "Learn about our approach",
+    description: "Poznaj nasze podejście",
   },
   {
-    label: "Testimonials",
+    label: "Opinie",
     href: "/#testimonials",
-    description: "Read what our clients say",
+    description: "Przeczytaj opinie naszych klientów",
   },
   {
-    label: "Contact",
+    label: "Kontakt",
     href: "/#contact",
-    description: "Get in touch with us",
+    description: "Skontaktuj się z nami",
   },
 ];
 
@@ -55,7 +55,7 @@ export const navigation: NavItem[] = [
  * Displayed in footer and contact section
  */
 export const contactInfo: ContactInfo = {
-  email: "kontakt@mellidogs.pl",
+  email: "kontakt@mel4dogs.pl",
   phone: "+48 123 456 789",
   address: {
     street: "ul. Świeradowska 47",
@@ -72,18 +72,18 @@ export const contactInfo: ContactInfo = {
 export const socialLinks: SocialLink[] = [
   {
     platform: "Facebook",
-    url: "https://facebook.com/mellidogs",
-    ariaLabel: "Follow us on Facebook",
+    url: "https://facebook.com/mel4dogs",
+    ariaLabel: "Śledź nas na Facebooku",
   },
   {
     platform: "Instagram",
-    url: "https://instagram.com/mellidogs",
-    ariaLabel: "Follow us on Instagram",
+    url: "https://instagram.com/mel4dogs",
+    ariaLabel: "Śledź nas na Instagramie",
   },
   {
     platform: "YouTube",
-    url: "https://youtube.com/@mellidogs",
-    ariaLabel: "Subscribe to our YouTube channel",
+    url: "https://youtube.com/@mel4dogs",
+    ariaLabel: "Subskrybuj nasz kanał YouTube",
   },
 ];
 
@@ -92,33 +92,33 @@ export const socialLinks: SocialLink[] = [
  * Multi-column footer with links and information
  */
 export const footerContent: FooterContent = {
-  tagline: "Building better relationships between dogs and their humans.",
-  copyright: `© ${new Date().getFullYear()} MELLI dogs. All rights reserved.`,
+  tagline: "Budujemy lepsze relacje między psami i ich opiekunami.",
+  copyright: `© ${new Date().getFullYear()} MEL4 dogs. Wszelkie prawa zastrzeżone.`,
   sections: [
     {
-      title: "Services",
+      title: "Usługi",
       links: [
-        { label: "Behavior Consultation", href: "/#services" },
-        { label: "Basic Training", href: "/#services" },
-        { label: "Advanced Training", href: "/#services" },
-        { label: "Puppy Socialization", href: "/#services" },
+        { label: "Konsultacje behawioralne", href: "/#konsultacje-behawioralne" },
+        { label: "Szczeniaczkowo", href: "/#szczeniaczkowo" },
+        { label: "Nosework", href: "/#nosework" },
+        { label: "Spacery socjalizacyjne", href: "/#spacery-socjalizacyjne" },
       ],
     },
     {
-      title: "Company",
+      title: "O nas",
       links: [
-        { label: "About Us", href: "/#about" },
-        { label: "Our Approach", href: "/#about" },
-        { label: "Success Stories", href: "/#testimonials" },
-        { label: "FAQ", href: "/#faq" },
+        { label: "O nas", href: "/#about" },
+        { label: "Nasze podejście", href: "/#values" },
+        { label: "Historie sukcesu", href: "/#testimonials" },
+        { label: "FAQ", href: "/#contact" },
       ],
     },
     {
-      title: "Legal",
+      title: "Informacje prawne",
       links: [
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms of Service", href: "/terms" },
-        { label: "Cookie Policy", href: "/cookies" },
+        { label: "Polityka prywatności", href: "/privacy" },
+        { label: "Regulamin", href: "/terms" },
+        { label: "Polityka cookies", href: "/cookies" },
       ],
     },
   ],
@@ -129,7 +129,7 @@ export const footerContent: FooterContent = {
  * Displayed in contact section
  */
 export const businessHours = {
-  weekdays: "Monday - Friday: 9:00 - 18:00",
-  weekends: "Saturday: 10:00 - 16:00",
-  sunday: "Sunday: Closed",
+  weekdays: "Poniedziałek - Piątek: 9:00 - 18:00",
+  weekends: "Sobota: 10:00 - 16:00",
+  sunday: "Niedziela: Zamknięte",
 };

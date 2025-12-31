@@ -1,14 +1,15 @@
-# Mellu Dogs
+# MEL4 dogs
 
-Production-ready Next.js 14+ marketing website with enterprise-grade tooling.
+Profesjonalna strona dla behawiorysty psów - gotowa do produkcji, zbudowana na Next.js 16 z najlepszymi praktykami.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 16.1.1 (App Router)
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS 4
 - **Code Quality**: ESLint + Prettier
 - **Git Hooks**: Husky + lint-staged
+- **Hosting**: Firebase Hosting (static export)
 
 ## Getting Started
 

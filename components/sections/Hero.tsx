@@ -120,7 +120,7 @@ export function Hero() {
             <div className="aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-blue-100 shadow-2xl lg:aspect-[4/3]">
               <Image
                 src="/images/hero-dog.jpg"
-                alt="Szczęśliwy pies podczas treningu behawioralnego z MELLI dogs we Wrocławiu"
+                alt="Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu"
                 width={1200}
                 height={900}
                 priority
