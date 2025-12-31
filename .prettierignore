@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+
+# Production builds
+.next
+out
+build
+dist
+
+# Cache
+.turbo
+.cache
+
+# Logs
+*.log
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db

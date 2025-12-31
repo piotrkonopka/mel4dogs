@@ -1,0 +1,340 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                              ┃
+┃         MELLI DOGS - PRODUCTION DEPLOYMENT GUIDE             ┃
+┃                  Quick Reference Card                        ┃
+┃                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+═══════════════════════════════════════════════════════════════
+  STEP 1: PRE-DEPLOYMENT CHECK
+═══════════════════════════════════════════════════════════════
+
+  ✓ Local Build Test
+    npm run type-check
+    npm run build
+    npm run start
+
+  ✓ Verify Features
+    • Contact form works (test submission)
+    • Images load (hero image, OG image)
+    • Mobile menu works
+    • No console errors
+
+═══════════════════════════════════════════════════════════════
+  STEP 2: DEPLOY TO VERCEL
+═══════════════════════════════════════════════════════════════
+
+  Quick Deploy (Automated)
+  -------------------------
+  ./scripts/deploy.sh
+
+  Manual Deploy
+  -------------------------
+  vercel login
+  vercel --prod
+
+  Result: https://mel4dogs-xyz.vercel.app ✅
+
+═══════════════════════════════════════════════════════════════
+  STEP 3: CONFIGURE DOMAIN (mellidogs.pl)
+═══════════════════════════════════════════════════════════════
+
+  DNS Records (at your registrar)
+  --------------------------------
+  
+  Type: A
+  Name: @
+  Value: 76.76.21.21
+  TTL: 3600
+
+  Type: CNAME
+  Name: www
+  Value: cname.vercel-dns.com
+  TTL: 3600
+
+  Wait: 1-48 hours (usually < 6 hours)
+
+═══════════════════════════════════════════════════════════════
+  STEP 4: SSL & HTTPS (Automatic)
+═══════════════════════════════════════════════════════════════
+
+  Vercel automatically:
+    ✓ Provisions Let's Encrypt SSL
+    ✓ Enables HTTPS
+    ✓ Redirects HTTP → HTTPS
+    ✓ Auto-renews certificates
+
+  Test: https://mellidogs.pl (padlock icon should appear)
+
+═══════════════════════════════════════════════════════════════
+  STEP 5: WWW REDIRECT (Configured)
+═══════════════════════════════════════════════════════════════
+
+  www.mellidogs.pl → mellidogs.pl (301 redirect)
+
+  Already configured in:
+    • middleware.ts
+    • next.config.ts
+
+  Test: curl -I https://www.mellidogs.pl
+  Expected: HTTP/2 301, location: https://mellidogs.pl
+
+═══════════════════════════════════════════════════════════════
+  STEP 6: SECURITY HEADERS (Configured)
+═══════════════════════════════════════════════════════════════
+
+  ✓ Strict-Transport-Security (HSTS)
+  ✓ X-Frame-Options (clickjacking protection)
+  ✓ X-Content-Type-Options (XSS protection)
+  ✓ Content-Security-Policy (CSP)
+  ✓ Referrer-Policy
+  ✓ Permissions-Policy
+
+  Test: securityheaders.com/?q=https://mellidogs.pl
+  Target Score: A
+
+═══════════════════════════════════════════════════════════════
+  STEP 7: CACHE STRATEGY (Configured)
+═══════════════════════════════════════════════════════════════
+
+  Static Assets: 1 year (immutable)
+    • Images (jpg, png, webp, avif, svg)
+    • Next.js static files (/_next/static/*)
+    • Font files
+
+  HTML Pages: Revalidate on request
+    • Cached at edge (60s)
+    • Stale-while-revalidate
+
+  CDN: Vercel Edge Network (285+ locations)
+
+═══════════════════════════════════════════════════════════════
+  STEP 8: ENVIRONMENT VARIABLES
+═══════════════════════════════════════════════════════════════
+
+  Via Vercel Dashboard:
+  ----------------------
+  Project → Settings → Environment Variables
+
+  Required (if using Firebase):
+    NEXT_PUBLIC_FIREBASE_FUNCTION_URL
+    = https://europe-west1-xxx.cloudfunctions.net/submitContactForm
+
+  Optional:
+    NEXT_PUBLIC_GA_MEASUREMENT_ID
+    = G-XXXXXXXXXX
+
+    NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    = your-verification-code
+
+═══════════════════════════════════════════════════════════════
+  STEP 9: FINAL QA CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+  Functionality
+  --------------
+  ☐ Homepage loads without errors
+  ☐ All sections render correctly
+  ☐ Contact form validates and submits
+  ☐ Mobile menu works
+  ☐ Images load (check WebP format)
+  ☐ No console errors
+
+  Performance (Lighthouse)
+  -------------------------
+  ☐ Performance > 95
+  ☐ LCP < 2.5s
+  ☐ CLS < 0.1
+  ☐ FID/INP < 100ms
+
+  SEO
+  ----
+  ☐ Title & meta description correct
+  ☐ Sitemap accessible (/sitemap.xml)
+  ☐ Robots.txt correct (/robots.txt)
+  ☐ OG tags present (check social previews)
+  ☐ Google Search Console verified
+
+  Mobile
+  -------
+  ☐ Responsive on all breakpoints
+  ☐ Touch targets large enough
+  ☐ No horizontal scroll
+  ☐ Forms usable
+
+  Accessibility
+  --------------
+  ☐ Lighthouse Accessibility = 100
+  ☐ Keyboard navigation works
+  ☐ Screen reader friendly
+  ☐ Color contrast WCAG AA
+
+  Security
+  ---------
+  ☐ HTTPS enforced
+  ☐ SSL certificate valid
+  ☐ Security headers present
+  ☐ securityheaders.com score A
+
+═══════════════════════════════════════════════════════════════
+  STEP 10: POST-LAUNCH MONITORING
+═══════════════════════════════════════════════════════════════
+
+  Google Search Console
+  ----------------------
+  1. Add property: https://mellidogs.pl
+  2. Verify ownership (meta tag)
+  3. Submit sitemap: /sitemap.xml
+  4. Monitor indexing status
+
+  Google Analytics 4 (Optional)
+  ------------------------------
+  1. Create GA4 property
+  2. Get Measurement ID
+  3. Add to environment variables
+  4. Verify in GA4 Real-Time
+
+  Uptime Monitoring
+  ------------------
+  • UptimeRobot (free): https://uptimerobot.com
+  • Pingdom: https://pingdom.com
+  • Monitor: https://mellidogs.pl every 5 minutes
+
+═══════════════════════════════════════════════════════════════
+  QUICK COMMANDS
+═══════════════════════════════════════════════════════════════
+
+  Deploy to Production
+  ---------------------
+  ./scripts/deploy.sh
+  OR
+  vercel --prod
+
+  Check DNS Propagation
+  ----------------------
+  dig mellidogs.pl
+  dig www.mellidogs.pl
+  https://dnschecker.org
+
+  Test HTTPS & SSL
+  -----------------
+  curl -I https://mellidogs.pl
+  openssl s_client -connect mellidogs.pl:443
+
+  Test WWW Redirect
+  ------------------
+  curl -I https://www.mellidogs.pl
+  # Expected: 301 → https://mellidogs.pl
+
+  Check Security Headers
+  -----------------------
+  curl -I https://mellidogs.pl | grep -i "strict\|x-frame\|x-content"
+
+  Run Lighthouse Audit
+  ---------------------
+  npx lighthouse https://mellidogs.pl --view
+
+  View Deployment Logs
+  ---------------------
+  vercel logs [deployment-url]
+
+  Rollback Deployment
+  --------------------
+  vercel rollback [deployment-url]
+
+═══════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+  Site Not Loading
+  -----------------
+  • Check DNS propagation (dnschecker.org)
+  • Wait up to 48 hours for DNS
+  • Verify A and CNAME records correct
+
+  SSL Certificate Not Working
+  ----------------------------
+  • Wait 10-60 minutes for provisioning
+  • Check domain is verified in Vercel
+  • Contact Vercel support if > 24 hours
+
+  WWW Not Redirecting
+  --------------------
+  • Check middleware.ts deployed
+  • Clear browser cache
+  • Test in incognito mode
+
+  Form Not Submitting
+  --------------------
+  • Check NEXT_PUBLIC_FIREBASE_FUNCTION_URL set
+  • Verify Firebase Function deployed
+  • Check browser console for errors
+
+  Images Not Loading
+  -------------------
+  • Check public/images/ folder exists
+  • Verify image paths correct
+  • Check CloudFront config (if using)
+
+═══════════════════════════════════════════════════════════════
+  SUCCESS CRITERIA
+═══════════════════════════════════════════════════════════════
+
+  ✅ Site accessible at https://mellidogs.pl
+  ✅ HTTPS enforced, valid SSL certificate
+  ✅ WWW redirects to non-WWW (301)
+  ✅ Lighthouse score > 95 (all categories)
+  ✅ Core Web Vitals passing (green)
+  ✅ Contact form working
+  ✅ Mobile responsive and accessible
+  ✅ Security headers score A
+  ✅ No console errors
+  ✅ Indexed by Google (within 7 days)
+
+═══════════════════════════════════════════════════════════════
+  RESOURCES
+═══════════════════════════════════════════════════════════════
+
+  Documentation
+  --------------
+  • Full checklist: PRODUCTION_CHECKLIST.md
+  • Firebase setup: FIREBASE_INTEGRATION.md
+  • Performance: PERFORMANCE.md
+  • SEO guide: SEO.md
+
+  Testing Tools
+  --------------
+  • DNS: https://dnschecker.org
+  • SSL: https://www.ssllabs.com/ssltest/
+  • Security: https://securityheaders.com
+  • Lighthouse: Chrome DevTools
+  • Speed: https://pagespeed.web.dev
+
+  Support
+  --------
+  • Vercel Docs: https://vercel.com/docs
+  • Vercel Support: https://vercel.com/support
+  • Next.js Docs: https://nextjs.org/docs
+  • Firebase Docs: https://firebase.google.com/docs
+
+═══════════════════════════════════════════════════════════════
+  TIMELINE
+═══════════════════════════════════════════════════════════════
+
+  Vercel deployment:        5 minutes
+  DNS configuration:        10 minutes
+  DNS propagation:          1-48 hours (usually < 6h)
+  SSL provisioning:         10-60 minutes (automatic)
+  QA testing:               2-4 hours
+  Google indexing:          1-7 days
+  
+  TOTAL: 4-6 hours + DNS propagation
+
+═══════════════════════════════════════════════════════════════
+
+  Status: ✅ Ready for production deployment
+  Last Updated: December 31, 2024
+  
+  Good luck! 🚀
+
+═══════════════════════════════════════════════════════════════

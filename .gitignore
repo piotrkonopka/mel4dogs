@@ -39,3 +39,58 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Turbopack
+.turbopack
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+.firebaserc
+firebase-debug.*.log
+firestore-debug.*.log
+pubsub-debug.log
+
+# Firebase Functions
+functions/node_modules/
+functions/.runtimeconfig.json
+functions/lib/
+
+# Firebase Hosting
+.firebase/hosting.*.cache
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# OS
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+logs
+*.log
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
+
+# Temporary files
+tmp/
+temp/
+.tmp/

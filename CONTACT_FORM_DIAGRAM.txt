@@ -1,0 +1,247 @@
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│  CONTACT FORM ARCHITECTURE - Static-First with Backend Ready    │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                         USER INTERFACE                          │
+│                    (ContactForm.tsx)                            │
+│                                                                 │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │ Imię i nazwisko *                                        │  │
+│  │ ┌──────────────────────────────────────────────────┐    │  │
+│  │ │ Jan Kowalski                                     │    │  │
+│  │ └──────────────────────────────────────────────────┘    │  │
+│  │                                                          │  │
+│  │ Email *                                                  │  │
+│  │ ┌──────────────────────────────────────────────────┐    │  │
+│  │ │ jan@example.com                                  │    │  │
+│  │ └──────────────────────────────────────────────────┘    │  │
+│  │                                                          │  │
+│  │ Telefon *                                                │  │
+│  │ ┌──────────────────────────────────────────────────┐    │  │
+│  │ │ 123-456-789                                      │    │  │
+│  │ └──────────────────────────────────────────────────┘    │  │
+│  │   ⚠️ Podaj prawidłowy numer telefonu (9 cyfr)          │  │
+│  │                                                          │  │
+│  │ Usługa *                                                 │  │
+│  │ ┌──────────────────────────────────────────────────┐    │  │
+│  │ │ Konsultacja behawioralna ▼                       │    │  │
+│  │ └──────────────────────────────────────────────────┘    │  │
+│  │                                                          │  │
+│  │ [ Wyślij wiadomość ]                                    │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ User submits form
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      CUSTOM HOOK LAYER                          │
+│                   (useContactForm.ts)                           │
+│                                                                 │
+│  1. Sanitize inputs      → Remove XSS characters               │
+│  2. Validate data        → Check required fields               │
+│  3. Show errors          → Update UI state                     │
+│  4. Submit if valid      → Call submission utility             │
+│  5. Handle response      → Update success/error state          │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ formData validated
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    VALIDATION LAYER                             │
+│                  (formValidation.ts)                            │
+│                                                                 │
+│  validateContactForm(data)                                      │
+│    │                                                            │
+│    ├─→ isValidEmail(email)                                     │
+│    │   ✓ Checks RFC-compliant format                           │
+│    │                                                            │
+│    ├─→ isValidPolishPhone(phone)                               │
+│    │   ✓ Accepts +48, 9 digits, various formats               │
+│    │                                                            │
+│    ├─→ validateField(name, rules)                              │
+│    │   ✓ Required, min/max length                              │
+│    │                                                            │
+│    └─→ sanitizeInput(message)                                  │
+│        ✓ Remove angle brackets, limit length                   │
+│                                                                 │
+│  Returns: { errors } or {}                                     │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ No errors
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   SUBMISSION LAYER                              │
+│                 (formSubmission.ts)                             │
+│                                                                 │
+│  submitContactForm(data)                                        │
+│         │                                                       │
+│         ├─ Check: Is Firebase configured?                      │
+│         │         (NEXT_PUBLIC_FIREBASE_FUNCTION_URL)          │
+│         │                                                       │
+│         ├─ YES → submitToFirebase(data)                        │
+│         │         │                                             │
+│         │         └─→ POST to Cloud Function                   │
+│         │             └─→ Success/Error                        │
+│         │                                                       │
+│         └─ NO  → submitFallback(data)                          │
+│                   │                                             │
+│                   └─→ console.log(data)                        │
+│                       └─→ Always success                       │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ Backend response
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    BACKEND OPTIONS                              │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │ OPTION 1: Firebase Cloud Functions (Recommended)       │  │
+│  │                                                         │  │
+│  │  Cloud Function receives POST                          │  │
+│  │    ├─→ Store in Firestore                              │  │
+│  │    ├─→ Send email to business                          │  │
+│  │    └─→ Send confirmation to user                       │  │
+│  │                                                         │  │
+│  │  Cost: FREE (under 2M requests/month)                  │  │
+│  │  Setup time: ~30 minutes                               │  │
+│  └─────────────────────────────────────────────────────────┘  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │ OPTION 2: Vercel Edge Functions                        │  │
+│  │                                                         │  │
+│  │  app/api/contact/route.ts                              │  │
+│  │    ├─→ Validate data                                   │  │
+│  │    ├─→ Store in database                               │  │
+│  │    └─→ Send notification                               │  │
+│  │                                                         │  │
+│  │  Cost: FREE (included with Vercel hosting)            │  │
+│  │  Setup time: ~15 minutes                               │  │
+│  └─────────────────────────────────────────────────────────┘  │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │ OPTION 3: Static Mode (Development)                    │  │
+│  │                                                         │  │
+│  │  No backend needed                                      │  │
+│  │    └─→ console.log(formData)                           │  │
+│  │                                                         │  │
+│  │  Perfect for: Testing, Development, Demos              │  │
+│  └─────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ Success/Error
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      USER FEEDBACK                              │
+│                                                                 │
+│  ┌────────────────────────────────────────────────────────┐    │
+│  │  ✓  Dziękujemy za kontakt!                            │    │
+│  │                                                        │    │
+│  │     Otrzymaliśmy Twoją wiadomość. Skontaktujemy       │    │
+│  │     się z Tobą w ciągu 24 godzin.                     │    │
+│  └────────────────────────────────────────────────────────┘    │
+│                                                                 │
+│  OR                                                             │
+│                                                                 │
+│  ┌────────────────────────────────────────────────────────┐    │
+│  │  ✗  Wystąpił błąd                                     │    │
+│  │                                                        │    │
+│  │     Nie udało się wysłać formularza. Spróbuj          │    │
+│  │     ponownie lub skontaktuj się telefonicznie.        │    │
+│  └────────────────────────────────────────────────────────┘    │
+│                                                                 │
+│  ARIA announcements for screen readers:                        │
+│  • "Formularz został wysłany pomyślnie"                        │
+│  • "Błąd wysyłania formularza. Spróbuj ponownie."             │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+                     ACCESSIBILITY FEATURES
+═══════════════════════════════════════════════════════════════════
+
+ ✓ Every input has <label> with htmlFor
+ ✓ Error messages with aria-describedby
+ ✓ Invalid fields marked with aria-invalid
+ ✓ ARIA live regions for dynamic updates
+ ✓ Screen reader announcements
+ ✓ Keyboard navigation support
+ ✓ Focus indicators (outline on focus-visible)
+ ✓ Color contrast WCAG AA compliant
+ ✓ Required fields marked with asterisk
+
+═══════════════════════════════════════════════════════════════════
+                       VALIDATION RULES
+═══════════════════════════════════════════════════════════════════
+
+ Field          Required  Min    Max     Format
+ ────────────────────────────────────────────────────
+ Name           Yes       2      100     -
+ Email          Yes       -      -       RFC email
+ Phone          Yes       9      9       Polish phone
+ Service        Yes       -      -       Select option
+ Message        Yes       10     2000    -
+ Dog Name       No        -      100     -
+ Dog Age        No        -      20      -
+ Dog Breed      No        -      100     -
+
+═══════════════════════════════════════════════════════════════════
+                    FIREBASE INTEGRATION
+═══════════════════════════════════════════════════════════════════
+
+┌────────────────────────┐
+│ 1. Set up Firebase     │  firebase init functions
+└────────────────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│ 2. Deploy function     │  firebase deploy --only functions
+└────────────────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│ 3. Set env variable    │  NEXT_PUBLIC_FIREBASE_FUNCTION_URL=...
+└────────────────────────┘
+            │
+            ▼
+┌────────────────────────┐
+│ 4. It just works! ✨   │  No code changes needed
+└────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+                        FILE STRUCTURE
+═══════════════════════════════════════════════════════════════════
+
+components/sections/
+  └── ContactForm.tsx          ← UI component (user-facing)
+
+lib/hooks/
+  └── useContactForm.ts        ← State management + submission
+
+lib/utils/
+  ├── formValidation.ts        ← Validation logic (reusable)
+  └── formSubmission.ts        ← Backend abstraction
+
+content/
+  └── contact.ts               ← Form configuration (Polish text)
+
+documentation/
+  ├── CONTACT_FORM.md          ← Implementation summary
+  └── FIREBASE_INTEGRATION.md  ← Backend setup guide
+
+═══════════════════════════════════════════════════════════════════
+                      PRODUCTION READY ✅
+═══════════════════════════════════════════════════════════════════
+
+ ✓ TypeScript strict mode
+ ✓ WCAG AA accessible
+ ✓ Client-side validation
+ ✓ Graceful error handling
+ ✓ No external dependencies
+ ✓ Firebase-ready
+ ✓ Polish locale
+ ✓ Mobile responsive
+ ✓ Zero layout shift
+ ✓ SEO friendly
+
