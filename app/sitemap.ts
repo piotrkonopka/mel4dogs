@@ -1,6 +1,9 @@
 import { MetadataRoute } from "next";
 import { siteInfo } from "@/content/site";
 
+// Force static generation for export
+export const dynamic = "force-static";
+
 /**
  * Sitemap configuration
  * Auto-generates sitemap.xml for search engines

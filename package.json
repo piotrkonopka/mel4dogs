@@ -5,12 +5,15 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "export": "next build",
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md,mdx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md,mdx}\"",
     "type-check": "tsc --noEmit",
+    "firebase:deploy": "firebase deploy --only hosting",
+    "firebase:preview": "npm run build && firebase emulators:start --only hosting",
     "prepare": "husky"
   },
   "dependencies": {

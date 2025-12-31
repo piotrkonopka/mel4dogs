@@ -86,7 +86,57 @@ Pre-commit hooks automatically:
 - `.lintstagedrc.json` - Lint-staged configuration
 - `.husky/pre-commit` - Git pre-commit hook
 
-## Deploy on Vercel
+## Firebase Hosting Deployment
+
+This project is configured for static export to Firebase Hosting.
+
+### Prerequisites
+
+```bash
+# Install Firebase CLI globally
+npm install -g firebase-tools
+
+# Login to Firebase
+firebase login
+
+# Initialize Firebase project (if needed)
+firebase init hosting
+```
+
+### Deployment Commands
+
+```bash
+# Build and export static site
+npm run build
+
+# Deploy to Firebase Hosting
+npm run firebase:deploy
+
+# Local preview with Firebase emulator
+npm run firebase:preview
+```
+
+### Firebase Configuration
+
+- **Public directory**: `out/` (Next.js static export)
+- **Clean URLs**: Enabled (removes .html extensions)
+- **Caching**: Optimized headers for images, JS, CSS
+- **Security headers**: X-Frame-Options, CSP, HSTS configured
+
+### Manual Deployment
+
+```bash
+# 1. Build the static export
+npm run build
+
+# 2. Deploy to Firebase
+firebase deploy --only hosting
+
+# 3. View deployed site
+firebase open hosting:site
+```
+
+## Deploy on Vercel (Alternative)
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 

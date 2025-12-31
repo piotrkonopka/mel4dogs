@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Static export for Firebase Hosting
+  output: "export",
+  // Trailing slash for clean URLs
+  trailingSlash: false,
+  
   // Image optimization configuration
   images: {
+    // Disable image optimization for static export
+    unoptimized: true,
     // CloudFront CDN pattern for remote images
     remotePatterns: [
       {
@@ -23,8 +30,6 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Minimize CLS by using explicit sizes
     minimumCacheTTL: 60,
-    // Enable image optimization in production
-    unoptimized: false,
   },
 
   // HTTP headers for caching and security

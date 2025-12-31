@@ -1,6 +1,9 @@
 import { MetadataRoute } from "next";
 import { siteInfo } from "@/content/site";
 
+// Force static generation for export
+export const dynamic = "force-static";
+
 /**
  * Robots.txt configuration
  * Controls search engine crawler access
