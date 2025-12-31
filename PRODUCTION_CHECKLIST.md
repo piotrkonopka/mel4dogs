@@ -5,14 +5,14 @@
 **Assumptions:**
 
 - ✅ Domain purchased and DNS accessible
-- ✅ Email configured (kontakt@mellidogs.pl)
+- ✅ Email configured (kontakt@mel4dogs.pl)
 - ✅ Next.js site built and tested locally
 - ✅ Firebase Functions ready (if using backend)
 
 **Target Setup:**
 
 - Platform: Vercel (recommended for Next.js)
-- Domain: mellidogs.pl
+- Domain: mel4dogs.pl
 - SSL: Automatic via Vercel/Let's Encrypt
 - CDN: Vercel Edge Network + CloudFront (for images)
 - Analytics: Google Analytics 4 (optional)
@@ -62,7 +62,7 @@ vercel
 
 1. Go to [vercel.com/dashboard](https://vercel.com/dashboard)
 2. Select your project → Settings → Domains
-3. Add domain: `mellidogs.pl`
+3. Add domain: `mel4dogs.pl`
 4. Vercel provides DNS records to configure:
 
 ```
@@ -78,13 +78,13 @@ CNAME   www     cname.vercel-dns.com
 3. Add/Update records:
 
 ```bash
-# Root domain (mellidogs.pl)
+# Root domain (mel4dogs.pl)
 Type: A
 Name: @
 Value: 76.76.21.21
 TTL: 3600
 
-# www subdomain (www.mellidogs.pl)
+# www subdomain (www.mel4dogs.pl)
 Type: CNAME
 Name: www
 Value: cname.vercel-dns.com
@@ -98,15 +98,15 @@ TTL: 3600
 
 ```bash
 # Check DNS propagation
-dig mellidogs.pl
-dig www.mellidogs.pl
+dig mel4dogs.pl
+dig www.mel4dogs.pl
 
 # Check from different locations
 # https://dnschecker.org
 
 # Test in browser
-https://mellidogs.pl → Should work
-https://www.mellidogs.pl → Should work
+https://mel4dogs.pl → Should work
+https://www.mel4dogs.pl → Should work
 ```
 
 ---
@@ -128,7 +128,7 @@ Vercel automatically:
 
 ```bash
 # Check SSL certificate
-curl -I https://mellidogs.pl
+curl -I https://mel4dogs.pl
 
 # Expected:
 # HTTP/2 200
@@ -137,7 +137,7 @@ curl -I https://mellidogs.pl
 
 **Browser Test:**
 
-1. Visit https://mellidogs.pl
+1. Visit https://mel4dogs.pl
 2. Click padlock icon in address bar
 3. View certificate → Should show valid Let's Encrypt certificate
 
@@ -150,7 +150,7 @@ curl -I https://mellidogs.pl
 sudo apt install certbot python3-certbot-nginx
 
 # Generate certificate
-sudo certbot --nginx -d mellidogs.pl -d www.mellidogs.pl
+sudo certbot --nginx -d mel4dogs.pl -d www.mel4dogs.pl
 
 # Auto-renewal (crontab)
 sudo certbot renew --dry-run
@@ -165,8 +165,8 @@ sudo certbot renew --dry-run
 **Via Vercel Dashboard:**
 
 1. Project Settings → Domains
-2. Set `mellidogs.pl` as **Production domain**
-3. Set `www.mellidogs.pl` as **Redirect to mellidogs.pl**
+2. Set `mel4dogs.pl` as **Production domain**
+3. Set `www.mel4dogs.pl` as **Redirect to mel4dogs.pl**
 
 **Via `vercel.json`:**
 
@@ -178,10 +178,10 @@ sudo certbot renew --dry-run
       "has": [
         {
           "type": "host",
-          "value": "www.mellidogs.pl"
+          "value": "www.mel4dogs.pl"
         }
       ],
-      "destination": "https://mellidogs.pl/:path*",
+      "destination": "https://mel4dogs.pl/:path*",
       "permanent": true,
       "statusCode": 301
     }
@@ -218,11 +218,11 @@ export const config = {
 
 ```bash
 # Should redirect to non-www
-curl -I https://www.mellidogs.pl
+curl -I https://www.mel4dogs.pl
 
 # Expected:
 # HTTP/2 301
-# location: https://mellidogs.pl/
+# location: https://mel4dogs.pl/
 ```
 
 ---
@@ -316,13 +316,13 @@ export default nextConfig;
 **Test with securityheaders.com:**
 
 1. Visit https://securityheaders.com
-2. Enter: https://mellidogs.pl
+2. Enter: https://mel4dogs.pl
 3. Target score: **A** or higher
 
 **Manual check:**
 
 ```bash
-curl -I https://mellidogs.pl | grep -i "strict-transport\|x-frame\|x-content"
+curl -I https://mel4dogs.pl | grep -i "strict-transport\|x-frame\|x-content"
 ```
 
 ---
@@ -466,11 +466,11 @@ vercel env pull .env.local
 
 #### SEO
 
-- [ ] **Title tag correct** (Behawiorystyka psów Wrocław - MELLI dogs)
+- [ ] **Title tag correct** (Behawiorystyka psów Wrocław - MEL4 dogs)
 - [ ] **Meta description present**
 - [ ] **OG tags configured** (Facebook/Twitter cards)
-- [ ] **Sitemap accessible** (https://mellidogs.pl/sitemap.xml)
-- [ ] **Robots.txt correct** (https://mellidogs.pl/robots.txt)
+- [ ] **Sitemap accessible** (https://mel4dogs.pl/sitemap.xml)
+- [ ] **Robots.txt correct** (https://mel4dogs.pl/robots.txt)
 - [ ] **Structured data valid** (Google Rich Results Test)
 - [ ] **Google Search Console verified**
 
@@ -532,7 +532,7 @@ vercel env pull .env.local
 
 ```bash
 # Check site is live
-curl -I https://mellidogs.pl
+curl -I https://mel4dogs.pl
 
 # Test from multiple locations
 # https://www.webpagetest.org
@@ -549,9 +549,9 @@ curl -I https://mellidogs.pl
 
 **Google Search Console:**
 
-1. Add property: https://mellidogs.pl
+1. Add property: https://mel4dogs.pl
 2. Verify ownership (meta tag method)
-3. Submit sitemap: https://mellidogs.pl/sitemap.xml
+3. Submit sitemap: https://mel4dogs.pl/sitemap.xml
 4. Monitor coverage and performance
 
 **Uptime Monitoring (Optional):**
@@ -578,7 +578,7 @@ curl -I https://mellidogs.pl
 
 #### SEO Indexing
 
-- [ ] Check Google indexing status (site:mellidogs.pl)
+- [ ] Check Google indexing status (site:mel4dogs.pl)
 - [ ] Verify rich snippets in search results
 - [ ] Monitor crawl errors in Search Console
 - [ ] Request indexing for key pages
@@ -708,23 +708,23 @@ npm run type-check
 npm run format
 
 # Check DNS
-dig mellidogs.pl
-dig www.mellidogs.pl
+dig mel4dogs.pl
+dig www.mel4dogs.pl
 
 # Test HTTPS
-curl -I https://mellidogs.pl
+curl -I https://mel4dogs.pl
 
 # Test redirect
-curl -I https://www.mellidogs.pl
+curl -I https://www.mel4dogs.pl
 
 # Check security headers
-curl -I https://mellidogs.pl | grep -E "Strict-Transport|X-Frame|X-Content"
+curl -I https://mel4dogs.pl | grep -E "Strict-Transport|X-Frame|X-Content"
 
 # Lighthouse audit
-npx lighthouse https://mellidogs.pl --view
+npx lighthouse https://mel4dogs.pl --view
 
 # Check SSL
-openssl s_client -connect mellidogs.pl:443 -servername mellidogs.pl
+openssl s_client -connect mel4dogs.pl:443 -servername mel4dogs.pl
 
 # Monitor logs (Vercel)
 vercel logs [deployment-url]
@@ -803,7 +803,7 @@ vercel logs [deployment-url]
 
 ### Success Criteria
 
-✅ Site accessible at https://mellidogs.pl  
+✅ Site accessible at https://mel4dogs.pl  
 ✅ HTTPS enforced, valid SSL certificate  
 ✅ WWW redirects to non-WWW  
 ✅ Lighthouse score > 95 (all categories)  

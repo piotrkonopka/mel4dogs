@@ -449,7 +449,7 @@ NEXT_PUBLIC_FIREBASE_FUNCTION_URL=
 
 ```bash
 # Your deployed Firebase Function
-NEXT_PUBLIC_FIREBASE_FUNCTION_URL=https://europe-west1-mellidogs.cloudfunctions.net/submitContactForm
+NEXT_PUBLIC_FIREBASE_FUNCTION_URL=https://europe-west1-mel4dogs.cloudfunctions.net/submitContactForm
 ```
 
 **Vercel deployment:**
@@ -489,7 +489,7 @@ Spróbuj ponownie lub skontaktuj się telefonicznie.
 **Contact methods also visible:**
 
 - Phone: 123-456-789
-- Email: kontakt@mellidogs.pl
+- Email: kontakt@mel4dogs.pl
 - Address: ul. Świeradowska 47, Wrocław
 
 ### Graceful Degradation

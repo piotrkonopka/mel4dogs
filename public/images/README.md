@@ -15,7 +15,7 @@
 - **File**: `og-default.jpg`
 - **Dimensions**: 1200x630px
 - **Format**: JPEG
-- **Subject**: MELLI dogs branding with Wrocław context
+- **Subject**: MEL4 dogs branding with Wrocław context
 
 ## Image Guidelines
 

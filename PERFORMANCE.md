@@ -444,4 +444,4 @@ npx @next/bundle-analyzer
 ---
 
 **Last Updated:** December 31, 2024
-**Maintained By:** MELLI dogs Development Team
+**Maintained By:** MEL4 dogs Development Team

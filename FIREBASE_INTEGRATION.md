@@ -103,7 +103,7 @@ export const submitContactForm = functions
   .region("europe-west1") // Choose region closest to users (Poland)
   .https.onRequest(async (req, res) => {
     // CORS headers
-    res.set("Access-Control-Allow-Origin", "https://mellidogs.pl");
+    res.set("Access-Control-Allow-Origin", "https://mel4dogs.pl");
     res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
     res.set("Access-Control-Allow-Headers", "Content-Type");
 
@@ -152,7 +152,7 @@ export const submitContactForm = functions
       // Send notification email to business
       const businessEmail = {
         from: functions.config().email.user,
-        to: "kontakt@mellidogs.pl", // Your business email
+        to: "kontakt@mel4dogs.pl", // Your business email
         subject: `🐕 Nowe zapytanie: ${data.service}`,
         html: `
           <h2>Nowe zapytanie z formularza kontaktowego</h2>
@@ -195,7 +195,7 @@ export const submitContactForm = functions
       const userEmail = {
         from: functions.config().email.user,
         to: data.email,
-        subject: "Dziękujemy za kontakt - MELLI dogs",
+        subject: "Dziękujemy za kontakt - MEL4 dogs",
         html: `
           <h2>Dziękujemy za kontakt!</h2>
           
@@ -208,11 +208,11 @@ export const submitContactForm = functions
           ${data.dogName ? `<p>Cieszymy się, że możemy pomóc Tobie i ${data.dogName}! 🐕</p>` : ""}
           
           <p>Pozdrawiamy,<br>
-          Zespół MELLI dogs</p>
+          Zespół MEL4 dogs</p>
           
           <hr>
           <p><small>ul. Świeradowska 47, 50-559 Wrocław</small></p>
-          <p><small>Tel: 123-456-789 | kontakt@mellidogs.pl</small></p>
+          <p><small>Tel: 123-456-789 | kontakt@mel4dogs.pl</small></p>
         `,
       };
 

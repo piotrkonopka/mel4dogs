@@ -407,7 +407,7 @@ See [/public/images/README.md](./public/images/README.md) for:
    - Ratio: 4:3 (1200x900px)
 
 2. Replace `/public/images/og-default.jpg` with branded card
-   - Include MELLI dogs branding
+   - Include MEL4 dogs branding
    - Wrocław context
    - Size: < 150KB
    - Ratio: 1200x630px

@@ -36,7 +36,7 @@ Two schemas implemented on homepage:
 ```json
 {
   "@type": "LocalBusiness",
-  "name": "MELLI dogs",
+  "name": "MEL4 dogs",
   "address": "ul. Świeradowska 47, 50-559 Wrocław",
   "geo": { "latitude": "51.1079", "longitude": "17.0385" },
   "telephone": "+48123456789",
@@ -116,7 +116,7 @@ All references updated in:
 
 [.env.example](.env.example) updated with:
 
-- `NEXT_PUBLIC_SITE_URL=https://mellidogs.pl`
+- `NEXT_PUBLIC_SITE_URL=https://mel4dogs.pl`
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` placeholder
 
 ## Usage Examples

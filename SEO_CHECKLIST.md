@@ -31,7 +31,7 @@ Once deployed:
 
 View page source and check for:
 
-- [x] `<title>MELLI dogs - Professional Dog Behaviorist & Training Services</title>`
+- [x] `<title>MEL4 dogs - Professional Dog Behaviorist & Training Services</title>`
 - [x] `<meta name="description" content="Professional dog behaviorist in Wrocław...">`
 - [x] `<meta property="og:title"...>` (OpenGraph)
 - [x] `<meta name="twitter:card"...>` (Twitter)
@@ -44,21 +44,21 @@ View page source and check for:
 ### 1. Google Search Console
 
 - URL: https://search.google.com/search-console
-- Add property: https://mellidogs.pl
-- Submit sitemap: https://mellidogs.pl/sitemap.xml
+- Add property: https://mel4dogs.pl
+- Submit sitemap: https://mel4dogs.pl/sitemap.xml
 
 ### 2. Google Business Profile
 
 - URL: https://business.google.com
 - Create listing with exact same:
-  - Name: MELLI dogs
+  - Name: MEL4 dogs
   - Address: ul. Świeradowska 47, 50-559 Wrocław
   - Phone: +48 123 456 789
 
 ### 3. Rich Results Test
 
 - URL: https://search.google.com/test/rich-results
-- Test homepage: https://mellidogs.pl
+- Test homepage: https://mel4dogs.pl
 - Verify LocalBusiness and ProfessionalService schemas
 
 ## Local SEO Next Steps
@@ -87,7 +87,7 @@ View page source and check for:
 
 ```bash
 # Lighthouse CI
-npx lighthouse https://mellidogs.pl --view
+npx lighthouse https://mel4dogs.pl --view
 
 # Check Core Web Vitals
 # Use PageSpeed Insights: https://pagespeed.web.dev/

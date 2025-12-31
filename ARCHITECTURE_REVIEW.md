@@ -268,7 +268,7 @@ export function cn(...classes): string
 ```typescript
 // content/site.ts - Contact info defined once
 export const contactInfo = {
-  email: "kontakt@mellidogs.pl",
+  email: "kontakt@mel4dogs.pl",
   phone: "123-456-789",
   address: "ul. Świeradowska 47, Wrocław"
 };
@@ -526,7 +526,7 @@ Comprehensive SEO implementation exceeding industry standards.
 ```typescript
 // app/layout.tsx - Global metadata
 export const metadata: Metadata = {
-  title: { default: homeSEO.title, template: "%s | MELLI dogs" },
+  title: { default: homeSEO.title, template: "%s | MEL4 dogs" },
   description: homeSEO.description,
   keywords: homeSEO.keywords,
   openGraph: { /* ... */ },
@@ -539,7 +539,7 @@ export const metadata: Metadata = {
 // LocalBusiness schema (content/seo.ts)
 {
   "@type": "LocalBusiness",
-  "name": "MELLI dogs",
+  "name": "MEL4 dogs",
   "address": {
     "streetAddress": "ul. Świeradowska 47",
     "addressLocality": "Wrocław",
@@ -565,7 +565,7 @@ export const metadata: Metadata = {
 // app/sitemap.ts - Dynamic generation
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: "https://mellidogs.pl", priority: 1.0, changeFrequency: "monthly" },
+    { url: "https://mel4dogs.pl", priority: 1.0, changeFrequency: "monthly" },
     // Auto-generated
   ];
 }
@@ -574,7 +574,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://mellidogs.pl/sitemap.xml",
+    sitemap: "https://mel4dogs.pl/sitemap.xml",
   };
 }
 ```
@@ -1116,7 +1116,7 @@ export function BookingSection() {
     <section>
       <h2>Umów konsultację</h2>
       <div className="calendly-inline-widget" 
-           data-url="https://calendly.com/mellidogs/consultation" 
+           data-url="https://calendly.com/mel4dogs/consultation" 
            style={{ minWidth: "320px", height: "700px" }} />
       <Script src="https://assets.calendly.com/assets/external/widget.js" />
     </section>
@@ -1441,8 +1441,8 @@ export default withPWA({
 
 // public/manifest.json
 {
-  "name": "MELLI dogs - Behawiorystyka",
-  "short_name": "MELLI dogs",
+  "name": "MEL4 dogs - Behawiorystyka",
+  "short_name": "MEL4 dogs",
   "theme_color": "#ea580c",
   "background_color": "#ffffff",
   "display": "standalone",
