@@ -5,17 +5,15 @@ import { useContactForm } from "@/lib/hooks/useContactForm";
 
 /**
  * Contact form with client-side validation
- * Ready for Firebase Functions or custom API integration
+ * Uses mailto: to open email client with pre-filled data
  *
  * Features:
  * - Client-side validation with Polish locale
  * - Accessible ARIA labels and error messages
  * - Screen reader announcements
  * - Graceful error handling
- * - No external dependencies
- *
- * To enable backend integration:
- * Set NEXT_PUBLIC_FIREBASE_FUNCTION_URL in .env.local
+ * - No backend required - fully static
+ * - GDPR compliant - no data transmission over network
  */
 export function ContactForm() {
   const {
