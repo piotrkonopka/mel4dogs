@@ -7,7 +7,7 @@
  */
 
 interface JSONLDProps {
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 export function JSONLD({ data }: JSONLDProps) {

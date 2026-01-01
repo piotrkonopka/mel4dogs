@@ -36,12 +36,13 @@ export function isValidPolishPhone(phone: string): boolean {
 
 /**
  * Sanitize string input (remove potential XSS)
+ * Note: Does NOT trim - trimming should only happen during validation
  */
 export function sanitizeInput(input: string): string {
-  return input
-    .trim()
-    .replace(/[<>]/g, "") // Remove angle brackets
-    .substring(0, 5000); // Limit length
+  // Only remove dangerous characters, preserve all whitespace
+  const cleaned = input.replace(/[<>]/g, "");
+  // Limit length
+  return cleaned.length > 5000 ? cleaned.substring(0, 5000) : cleaned;
 }
 
 /**

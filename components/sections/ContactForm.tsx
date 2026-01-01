@@ -28,8 +28,12 @@ export function ContactForm() {
   } = useContactForm({
     onSuccess: () => {
       // Optional: Track successful submission
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "form_submission", {
+      if (
+        typeof window !== "undefined" &&
+        "gtag" in window &&
+        typeof window.gtag === "function"
+      ) {
+        window.gtag("event", "form_submission", {
           event_category: "engagement",
           event_label: "contact_form",
         });
