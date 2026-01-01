@@ -25,25 +25,7 @@ export function ContactForm() {
     submitMessage,
     updateField,
     submitForm,
-  } = useContactForm({
-    onSuccess: () => {
-      // Optional: Track successful submission
-      if (
-        typeof window !== "undefined" &&
-        "gtag" in window &&
-        typeof window.gtag === "function"
-      ) {
-        window.gtag("event", "form_submission", {
-          event_category: "engagement",
-          event_label: "contact_form",
-        });
-      }
-    },
-    onError: (error) => {
-      // Optional: Track errors
-      console.error("Form submission failed:", error);
-    },
-  });
+  } = useContactForm();
 
   const handleChange = (
     e: React.ChangeEvent<

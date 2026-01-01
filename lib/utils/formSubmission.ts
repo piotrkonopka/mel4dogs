@@ -121,49 +121,51 @@ export async function submitToAPI(
 }
 
 /**
- * Fallback: Log to console (for development/static mode)
- * In production, this could be replaced with analytics or monitoring
+ * Open email client with pre-filled contact form data
+ * This is a static-site-friendly approach - no backend needed
  */
-export function submitFallback(data: ContactFormData): SubmissionResponse {
-  console.log("📧 Contact Form Submission:", {
-    ...data,
-    timestamp: new Date().toISOString(),
-  });
+export function openMailtoLink(data: ContactFormData): void {
+  const subject = `Zapytanie: ${data.service}`;
 
-  // In production, you might want to:
-  // - Store in localStorage for later retry
-  // - Send to analytics
-  // - Show instructions to contact via email/phone
+  const body = `
+Imię i nazwisko: ${data.name}
+Email: ${data.email}
+Telefon: ${data.phone}
 
-  return {
-    success: true,
-    message:
-      "Formularz został zapisany lokalnie. Skontaktujemy się z Tobą wkrótce.",
-  };
+${data.dogName ? `Imię psa: ${data.dogName}` : ""}
+${data.dogAge ? `Wiek psa: ${data.dogAge}` : ""}
+${data.dogBreed ? `Rasa: ${data.dogBreed}` : ""}
+
+Usługa: ${data.service}
+
+Wiadomość:
+${data.message}
+  `.trim();
+
+  const mailto = `mailto:kontakt@mel4dogs.pl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailto;
 }
 
 /**
- * Main form submission handler with automatic fallback
- * Tries Firebase first, then falls back to console logging
+ * Main form submission handler - opens email client
  */
 export async function submitContactForm(
   data: ContactFormData
 ): Promise<SubmissionResponse> {
-  // Check if Firebase is configured
-  const firebaseEnabled = !!process.env.NEXT_PUBLIC_FIREBASE_FUNCTION_URL;
+  try {
+    openMailtoLink(data);
 
-  if (firebaseEnabled) {
-    const result = await submitToFirebase(data);
-
-    // If Firebase fails, use fallback
-    if (!result.success) {
-      console.warn("Firebase submission failed, using fallback");
-      return submitFallback(data);
-    }
-
-    return result;
+    return {
+      success: true,
+      message: "Otwieram klienta email...",
+    };
+  } catch (error) {
+    console.error("mailto error:", error);
+    return {
+      success: false,
+      error:
+        "Nie udało się otworzyć klienta email. Skontaktuj się bezpośrednio: kontakt@mel4dogs.pl",
+    };
   }
-
-  // No backend configured, use fallback
-  return submitFallback(data);
 }

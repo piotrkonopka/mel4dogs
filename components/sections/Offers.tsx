@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Offer } from "@/lib/types";
-import { getMinPriceFromIds, formatPriceFrom } from "@/content/pricing";
+import { getMinPriceFromIds } from "@/content/pricing";
 
 interface OfferCardProps {
   offer: Offer;

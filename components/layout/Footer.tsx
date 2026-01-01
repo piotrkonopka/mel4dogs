@@ -1,10 +1,5 @@
 import Link from "next/link";
-import {
-  footerContent,
-  socialLinks,
-  contactInfo,
-  siteInfo,
-} from "@/content/site";
+import { footerContent, socialLinks, siteInfo } from "@/content/site";
 
 /**
  * Footer with navigation, social links, and legal info

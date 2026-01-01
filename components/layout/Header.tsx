@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { navigation, siteInfo } from "@/content/site";
+import { navigation } from "@/content/site";
 
 /**
  * Main header with navigation

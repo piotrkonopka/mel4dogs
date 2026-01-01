@@ -116,14 +116,6 @@ export const footerContent: FooterContent = {
         { label: "FAQ", href: "/#contact" },
       ],
     },
-    {
-      title: "Informacje prawne",
-      links: [
-        { label: "Polityka prywatności", href: "/privacy" },
-        { label: "Regulamin", href: "/terms" },
-        { label: "Polityka cookies", href: "/cookies" },
-      ],
-    },
   ],
 };
 
