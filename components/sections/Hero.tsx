@@ -117,16 +117,16 @@ export function Hero() {
 
           {/* Hero Image */}
           <div className="relative">
-            <div className="aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-blue-100 shadow-2xl lg:aspect-[4/3]">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-blue-100 shadow-2xl">
               <Image
-                src="/images/hero-dog.jpg"
+                src="https://res.cloudinary.com/dy2ezlbgp/image/upload/v1766420749/ea0a840d72184c0deca9475de15c74f1_jdubw2.png"
                 alt="Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu"
                 width={1200}
                 height={900}
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                className="h-full w-full object-cover"
-                quality={85}
+                className="h-full w-full object-contain"
+                quality={90}
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAB//2Q=="
               />
