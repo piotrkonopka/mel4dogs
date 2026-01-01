@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   output: "export",
   // Trailing slash for clean URLs
   trailingSlash: false,
-  
+
   // Image optimization configuration
   images: {
     // Disable image optimization for static export

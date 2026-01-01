@@ -111,7 +111,8 @@ export const blogSEO: SEOMetadata = {
 
 export const offerSEO = {
   "konsultacje-behawioralne": {
-    title: "Konsultacje behawioralne - Praca z emocjami i relacją | MEL4dogs Wrocław",
+    title:
+      "Konsultacje behawioralne - Praca z emocjami i relacją | MEL4dogs Wrocław",
     description:
       "Indywidualne konsultacje behawioralne we Wrocławiu. Spotykamy się w domu, na hali lub w parku. Pracujemy nad komunikacją, zrozumieniem i relacją z Twoim psem. Bez presji i oczekiwań perfekcji.",
     keywords: [
@@ -125,7 +126,8 @@ export const offerSEO = {
   },
 
   szczeniaczkowo: {
-    title: "Szczeniaczkowo - Fundamenty relacji dla szczeniaków | MEL4dogs Wrocław",
+    title:
+      "Szczeniaczkowo - Fundamenty relacji dla szczeniaków | MEL4dogs Wrocław",
     description:
       "Program dla szczeniaków we Wrocławiu. Budujemy fundamenty relacji opartej na zaufaniu i bezpieczeństwie. Oswajanie świata w tempie szczeniaka, bez dryli i presji. Dla psów do 6 miesięcy.",
     keywords: [
@@ -139,7 +141,8 @@ export const offerSEO = {
   },
 
   "spacery-socjalizacyjne": {
-    title: "Spacery socjalizacyjne - Regulacja emocji w terenie | MEL4dogs Wrocław",
+    title:
+      "Spacery socjalizacyjne - Regulacja emocji w terenie | MEL4dogs Wrocław",
     description:
       "Spacery socjalizacyjne we Wrocławiu. Pies uczy się regulować emocje, komunikować z otoczeniem i budować pewność siebie. Bez dryli posłuszeństwa - skupiamy się na rozumieniu i spokoju.",
     keywords: [
@@ -220,7 +223,8 @@ export const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": siteInfo.url,
   name: siteInfo.name,
-  description: "Behawiorystka i trenerka psów we Wrocławiu. Praca z empatią, bez dominacji. Konsultacje behawioralne, nosework, spacery socjalizacyjne.",
+  description:
+    "Behawiorystka i trenerka psów we Wrocławiu. Praca z empatią, bez dominacji. Konsultacje behawioralne, nosework, spacery socjalizacyjne.",
   url: siteInfo.url,
   telephone: "+48123456789",
   email: "kontakt@mel4dogs.pl",
@@ -255,10 +259,7 @@ export const localBusinessSchema = {
     "@type": "City",
     name: "Wrocław",
   },
-  sameAs: [
-    "https://facebook.com/mel4dogs",
-    "https://instagram.com/mel4dogs",
-  ],
+  sameAs: ["https://facebook.com/mel4dogs", "https://instagram.com/mel4dogs"],
 };
 
 /**
@@ -268,7 +269,8 @@ export const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: siteInfo.name,
-  description: "Behawiorystka i trenerka psów. Praca z empatią, komunikacją i relacją.",
+  description:
+    "Behawiorystka i trenerka psów. Praca z empatią, komunikacją i relacją.",
   url: siteInfo.url,
   serviceType: [
     "Behawiorystyka psów",
@@ -334,8 +336,7 @@ export const professionalServiceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Obozy",
-          description:
-            "Wspólny czas z psem w naturze. Nauka i relaksacja.",
+          description: "Wspólny czas z psem w naturze. Nauka i relaksacja.",
         },
       },
     ],

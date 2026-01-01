@@ -3,7 +3,7 @@ import type { ServicePrice, PackagePrice, PricingConfig } from "@/lib/types";
 /**
  * Individual Service Prices
  * MEL4dogs – Martyna Dziemidowicz
- * 
+ *
  * Base prices for single sessions
  * All prices in PLN, durations in minutes
  */
@@ -74,7 +74,8 @@ export const packages: PackagePrice[] = [
     sessionDuration: 30,
     pricePerSession: 70,
     savings: 80, // 8 × 80 = 640, savings: 640 - 560 = 80
-    description: "8 półgodzinnych sesji – systematyczna praca nad pewnością siebie",
+    description:
+      "8 półgodzinnych sesji – systematyczna praca nad pewnością siebie",
   },
 ];
 
@@ -129,7 +130,10 @@ export function formatPrice(price: number, currency: "PLN" = "PLN"): string {
 /**
  * Format price range for display
  */
-export function formatPriceFrom(price: number, currency: "PLN" = "PLN"): string {
+export function formatPriceFrom(
+  price: number,
+  currency: "PLN" = "PLN"
+): string {
   return `od ${price} ${currency}`;
 }
 

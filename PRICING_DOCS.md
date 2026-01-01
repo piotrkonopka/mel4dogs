@@ -11,13 +11,17 @@ The pricing configuration provides a structured, type-safe way to manage service
 ## Structure
 
 ### Services
+
 Individual session pricing with:
+
 - **Numeric prices** (no strings)
 - **Explicit durations** (in minutes)
 - **Service references** (linked to offers via `serviceId`)
 
 ### Packages
+
 Discounted bundles with:
+
 - **Session counts**
 - **Automatic savings calculation**
 - **Per-session prices**
@@ -29,11 +33,11 @@ Discounted bundles with:
 ```typescript
 interface ServicePrice {
   id: string;
-  serviceId: string;        // References offer.id
+  serviceId: string; // References offer.id
   name: string;
-  price: number;            // Numeric PLN
+  price: number; // Numeric PLN
   currency: "PLN";
-  duration: number;         // Minutes
+  duration: number; // Minutes
   description?: string;
 }
 
@@ -45,7 +49,7 @@ interface PackagePrice {
   currency: "PLN";
   sessionsCount: number;
   sessionDuration: number;
-  savings?: number;         // Auto-calculated
+  savings?: number; // Auto-calculated
   pricePerSession: number;
   description?: string;
   highlighted?: boolean;
@@ -59,10 +63,12 @@ interface PackagePrice {
 ### Konsultacje behawioralne
 
 **Individual:**
+
 - Pierwsza konsultacja (90 min): **240 PLN**
 - Konsultacja następna (60 min): **160 PLN**
 
 **Package:**
+
 - 8 konsultacji (60 min each): **1,120 PLN**
 - Per session: **140 PLN**
 - Savings: **160 PLN** (20% off)
@@ -70,9 +76,11 @@ interface PackagePrice {
 ### Nosework
 
 **Individual:**
+
 - Sesja (30 min): **80 PLN**
 
 **Package:**
+
 - 8 sesji (30 min each): **560 PLN**
 - Per session: **70 PLN**
 - Savings: **80 PLN** (12.5% off)
@@ -80,6 +88,7 @@ interface PackagePrice {
 ### Spacery socjalizacyjne
 
 **Individual:**
+
 - Spacer (50-60 min): **80 PLN**
 
 ---
@@ -138,9 +147,9 @@ Format duration for display.
 ```typescript
 import { formatDuration } from "@/content/pricing";
 
-formatDuration(30);  // "30 min"
-formatDuration(90);  // "1h 30min"
-formatDuration(60);  // "1h"
+formatDuration(30); // "30 min"
+formatDuration(90); // "1h 30min"
+formatDuration(60); // "1h"
 ```
 
 ### `calculateSavings(sessionsCount, regularPrice, packagePrice): number`
@@ -165,9 +174,9 @@ import { offers } from "@/content/offers";
 import { getMinPriceForService, formatPriceFrom } from "@/content/pricing";
 
 export function ServiceCard({ offerId }: { offerId: string }) {
-  const offer = offers.find(o => o.id === offerId);
+  const offer = offers.find((o) => o.id === offerId);
   const minPrice = getMinPriceForService(offerId);
-  
+
   return (
     <div>
       <h3>{offer.title}</h3>
@@ -181,24 +190,28 @@ export function ServiceCard({ offerId }: { offerId: string }) {
 ### Display Full Pricing Table
 
 ```tsx
-import { getPricingForService, formatPrice, formatDuration } from "@/content/pricing";
+import {
+  getPricingForService,
+  formatPrice,
+  formatDuration,
+} from "@/content/pricing";
 
 export function PricingTable({ serviceId }: { serviceId: string }) {
   const { services, packages } = getPricingForService(serviceId);
-  
+
   return (
     <div>
       <h4>Ceny pojedynczych sesji</h4>
-      {services.map(service => (
+      {services.map((service) => (
         <div key={service.id}>
           <span>{service.name}</span>
           <span>{formatDuration(service.duration)}</span>
           <span>{formatPrice(service.price)}</span>
         </div>
       ))}
-      
+
       <h4>Pakiety</h4>
-      {packages.map(pkg => (
+      {packages.map((pkg) => (
         <div key={pkg.id}>
           <span>{pkg.name}</span>
           <span>{pkg.sessionsCount} sesji</span>
@@ -220,9 +233,9 @@ import { getMinPriceForService } from "@/content/pricing";
 export function OffersGrid() {
   return (
     <div className="grid">
-      {offers.map(offer => {
+      {offers.map((offer) => {
         const minPrice = getMinPriceForService(offer.id);
-        
+
         return (
           <div key={offer.id}>
             <h3>{offer.title}</h3>
@@ -252,7 +265,7 @@ export const services: ServicePrice[] = [
   // ... existing services
   {
     id: "nowa-usluga-sesja",
-    serviceId: "nowa-usluga",  // Must match offer.id
+    serviceId: "nowa-usluga", // Must match offer.id
     name: "Nazwa usługi",
     price: 150,
     currency: "PLN",
@@ -304,13 +317,14 @@ const pricePerSession = packagePrice / sessionsCount;
 ✅ **Helper functions** - Consistent formatting  
 ✅ **Extensible** - Easy to add new services/packages  
 ✅ **UI-friendly** - Supports "od X zł" display  
-✅ **DRY** - Single source of truth for pricing  
+✅ **DRY** - Single source of truth for pricing
 
 ---
 
 ## Migration Notes
 
 ### Old Offer Structure
+
 ```typescript
 {
   id: "service",
@@ -320,6 +334,7 @@ const pricePerSession = packagePrice / sessionsCount;
 ```
 
 ### New Structure
+
 ```typescript
 // In offers.ts
 {

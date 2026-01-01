@@ -3,7 +3,7 @@ import type { BrandValue, AboutContent } from "@/lib/types";
 /**
  * Brand Values
  * MEL4dogs – Martyna Dziemidowicz
- * 
+ *
  * Core values that define our approach to dog training and behaviorism
  * Tone: calm, confident, non-judgmental
  */
@@ -68,7 +68,8 @@ export const aboutContent: AboutContent = {
  * Short tagline
  * For hero sections, headers, or social media
  */
-export const tagline = "Zrozumienie zamiast posłuszeństwa. Relacja zamiast kontroli.";
+export const tagline =
+  "Zrozumienie zamiast posłuszeństwa. Relacja zamiast kontroli.";
 
 /**
  * Mission statement

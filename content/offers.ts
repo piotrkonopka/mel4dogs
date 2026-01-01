@@ -73,7 +73,11 @@ export const offers: Offer[] = [
       "Tworzenie fundamentów na przyszłość bez sztywnych reguł",
       "Spokojne towarzyszenie w nauce bez oczekiwań perfekcji",
     ],
-    locations: ["dom opiekuna", "bezpieczne miejsca zewnętrzne", "kontrolowane środowisko"],
+    locations: [
+      "dom opiekuna",
+      "bezpieczne miejsca zewnętrzne",
+      "kontrolowane środowisko",
+    ],
     pricingIds: [
       "konsultacja-behawioralna-pierwsza",
       "konsultacja-behawioralna-nastepna",
@@ -99,7 +103,11 @@ export const offers: Offer[] = [
       "Wspieranie w radzeniu sobie z bodźcami zewnętrznymi",
       "Spacer jako czas na relację, a nie tylko na trening",
     ],
-    locations: ["parki", "tereny spacerowe", "kontrolowane środowiska miejskie"],
+    locations: [
+      "parki",
+      "tereny spacerowe",
+      "kontrolowane środowiska miejskie",
+    ],
     pricingIds: ["spacer-socjalizacyjny"],
     cta: {
       text: "Umów spacer",
@@ -145,7 +153,11 @@ export const offers: Offer[] = [
       "Budowanie społeczności świadomych opiekunów",
       "Połączenie teorii z praktyką w realnych sytuacjach",
     ],
-    locations: ["hala treningowa", "sale konferencyjne", "przestrzenie spotkań"],
+    locations: [
+      "hala treningowa",
+      "sale konferencyjne",
+      "przestrzenie spotkań",
+    ],
     pricingIds: [], // Pricing to be announced per event
     cta: {
       text: "Zobacz najbliższe warsztaty",
@@ -267,7 +279,7 @@ export const features = [
   {
     title: "Bez przymusu i dominacji",
     description:
-      "Żadnych kar, korekt ani \"ustalania hierarchii\". Pracuję z emocjami psa, nie przeciwko niemu.",
+      'Żadnych kar, korekt ani "ustalania hierarchii". Pracuję z emocjami psa, nie przeciwko niemu.',
     icon: "peace",
   },
   {

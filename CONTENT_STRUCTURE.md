@@ -4,11 +4,12 @@
 
 **Name:** MEL4dogs – Martyna Dziemidowicz  
 **Type:** Dog behaviorist and trainer  
-**Location:** Wrocław, Poland  
+**Location:** Wrocław, Poland
 
 ## Content Philosophy
 
 **Tone:**
+
 - Empathetic and relationship-focused
 - Non-authoritarian approach
 - Professional but warm
@@ -24,6 +25,7 @@
 Complete typed content structure with:
 
 #### Hero Section (`heroContent`)
+
 - Headline: "Zrozumienie, empatia i relacja z Twoim psem"
 - Subheadline about emotions and communication
 - Personal introduction by Martyna
@@ -33,6 +35,7 @@ Complete typed content structure with:
 #### 6 Service Offers (`offers[]`)
 
 Each offer includes:
+
 - `id` - unique identifier
 - `slug` - SEO-friendly URL slug
 - `title` - service name
@@ -78,12 +81,14 @@ Each offer includes:
 #### Testimonials (`testimonials[]`)
 
 4 authentic client stories:
+
 - Karolina (Franek, Border Collie) - reactivity work
 - Michał (Bella, Mixed breed) - puppy program
 - Agnieszka (Maks, German Shepherd) - anxiety & nosework
 - Paulina (Tosia, Pointer) - camps experience
 
 Each includes:
+
 - Client name
 - Dog name & breed
 - Detailed testimonial (empathy-focused)
@@ -92,6 +97,7 @@ Each includes:
 #### FAQ Section (`faqItems[]`)
 
 6 common questions:
+
 1. Jakich metod używasz w pracy z psami?
 2. Jak szybko zobaczę efekty?
 3. Gdzie odbywają się spotkania?
@@ -104,6 +110,7 @@ Each answer reflects empathetic, non-dominance approach.
 #### Features Section (`features[]`)
 
 6 key differentiators:
+
 1. **Empatia i zrozumienie** - Understanding over imposing solutions
 2. **Bez przymusu i dominacji** - No force or dominance
 3. **Indywidualne podejście** - Individual, personalized approach
@@ -118,17 +125,18 @@ Each answer reflects empathetic, non-dominance approach.
 ### Updated `/lib/types/index.ts`
 
 Enhanced `Offer` interface:
+
 ```typescript
 export interface Offer {
   id: string;
-  slug: string;                // NEW - SEO-friendly URL
+  slug: string; // NEW - SEO-friendly URL
   title: string;
   description: string;
-  longDescription?: string;    // NEW - detailed empathy-driven description
-  price?: string;              // Made optional
+  longDescription?: string; // NEW - detailed empathy-driven description
+  price?: string; // Made optional
   duration?: string;
   features: string[];
-  locations?: string[];        // NEW - where sessions take place
+  locations?: string[]; // NEW - where sessions take place
   highlighted?: boolean;
   cta?: CTAButton;
 }
@@ -139,6 +147,7 @@ export interface Offer {
 ## Content Principles
 
 ### Language & Tone
+
 ✅ Empathetic and warm
 ✅ Focus on emotions and understanding
 ✅ Non-judgmental language
@@ -151,12 +160,14 @@ export interface Offer {
 ❌ No generic corporate speak
 
 ### Content Structure
+
 - **Short descriptions**: 1-2 sentences, clear value proposition
 - **Long descriptions**: Emotional narrative, empathy-driven, relationship-focused
 - **Benefits**: Specific, emotion-focused, process-oriented (not just results)
 - **Locations**: Flexibility and comfort emphasized
 
 ### Relationship Philosophy
+
 - Dog as emotional being, not trainable object
 - Communication over commands
 - Understanding over obedience
@@ -193,6 +204,7 @@ export function OffersSection() {
 ```
 
 **Benefits:**
+
 - Single source of truth for content
 - Easy updates without touching components
 - Type-safe content management
@@ -203,18 +215,21 @@ export function OffersSection() {
 ## Next Steps
 
 ### Content Maintenance
+
 1. Update prices/availability in `/content/offers.ts`
 2. Add new testimonials to `testimonials[]`
 3. Update FAQ based on common questions
 4. Adjust hero content seasonally if needed
 
 ### Component Integration
+
 1. Update `components/sections/Offers.tsx` to use new fields (`slug`, `longDescription`, `locations`)
 2. Create individual service pages using `slug` for routing
 3. Display `locations` in service cards
 4. Use `longDescription` for service detail pages
 
 ### SEO Enhancement
+
 1. Use `slug` for URL structure: `/uslugi/[slug]`
 2. Create metadata from offer content
 3. Add structured data for services

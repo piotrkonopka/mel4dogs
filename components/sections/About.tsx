@@ -21,7 +21,7 @@ function ValueCard({ value }: ValueCardProps) {
       </div>
 
       <h3 className="text-xl font-bold text-gray-900">{value.title}</h3>
-      <p className="mt-3 text-gray-600 leading-relaxed">{value.description}</p>
+      <p className="mt-3 leading-relaxed text-gray-600">{value.description}</p>
     </article>
   );
 }
@@ -51,7 +51,7 @@ export function About() {
               {aboutContent.subheading}
             </p>
           )}
-          <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+          <p className="mt-6 text-lg leading-relaxed text-gray-600">
             {aboutContent.introduction}
           </p>
         </div>
@@ -66,7 +66,7 @@ export function About() {
         {/* Mission Statement */}
         {aboutContent.mission && (
           <div className="mx-auto mt-16 max-w-3xl rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-blue-50 p-8 text-center">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg leading-relaxed text-gray-700">
               {aboutContent.mission}
             </p>
           </div>
@@ -77,7 +77,7 @@ export function About() {
           <div className="mt-12 text-center">
             <a
               href={aboutContent.cta.href}
-              className="inline-block rounded-full bg-orange-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2"
+              className="inline-block rounded-full bg-orange-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
             >
               {aboutContent.cta.text}
             </a>
@@ -87,5 +87,3 @@ export function About() {
     </section>
   );
 }
-
-

@@ -9,6 +9,7 @@ Offers and pricing are bound via **ID references** instead of duplicating data. 
 ## Structure
 
 ### Offers (`/content/offers.ts`)
+
 ```typescript
 {
   id: "konsultacje-behawioralne",
@@ -23,6 +24,7 @@ Offers and pricing are bound via **ID references** instead of duplicating data. 
 ```
 
 ### Pricing (`/content/pricing.ts`)
+
 ```typescript
 {
   id: "konsultacja-behawioralna-pierwsza",
@@ -38,6 +40,7 @@ Offers and pricing are bound via **ID references** instead of duplicating data. 
 ## No Circular Dependencies
 
 **Dependency Flow:**
+
 ```
 lib/types/index.ts
     ↓
@@ -49,6 +52,7 @@ components/        (imports both offers + pricing)
 ```
 
 **Why this works:**
+
 - `offers.ts` defines offers with `pricingIds: string[]`
 - `pricing.ts` defines pricing with `serviceId: string`
 - Neither file imports the other
@@ -60,39 +64,49 @@ components/        (imports both offers + pricing)
 ## Binding Relationships
 
 ### Konsultacje behawioralne
+
 **Offer ID:** `konsultacje-behawioralne`
 
 **Pricing IDs:**
+
 - `konsultacja-behawioralna-pierwsza` (240 PLN, 90 min)
 - `konsultacja-behawioralna-nastepna` (160 PLN, 60 min)
 - `pakiet-konsultacje-8` (1120 PLN, 8 sessions)
 
 ### Szczeniaczkowo
+
 **Offer ID:** `szczeniaczkowo`
 
 **Pricing IDs:**
+
 - `konsultacja-behawioralna-pierwsza` (reuses consultation pricing)
 - `konsultacja-behawioralna-nastepna`
 
 ### Spacery socjalizacyjne
+
 **Offer ID:** `spacery-socjalizacyjne`
 
 **Pricing IDs:**
+
 - `spacer-socjalizacyjny` (80 PLN, 55 min)
 
 ### Nosework
+
 **Offer ID:** `nosework`
 
 **Pricing IDs:**
+
 - `nosework-sesja` (80 PLN, 30 min)
 - `pakiet-nosework-8` (560 PLN, 8 sessions)
 
 ### Warsztaty i eventy
+
 **Offer ID:** `warsztaty-eventy`
 
 **Pricing IDs:** `[]` (pricing announced per event)
 
 ### Obozy
+
 **Offer ID:** `obozy`
 
 **Pricing IDs:** `[]` (pricing announced per camp)
@@ -109,27 +123,27 @@ import { getPricingByIds, getMinPriceFromIds } from "@/content/pricing";
 
 export function OfferDetail({ offerId }: { offerId: string }) {
   const offer = offers.find(o => o.id === offerId);
-  
+
   if (!offer) return null;
-  
+
   // Get all pricing for this offer
   const { services, packages } = getPricingByIds(offer.pricingIds || []);
-  
+
   // Get minimum price for "od X zł" display
   const minPrice = getMinPriceFromIds(offer.pricingIds || []);
-  
+
   return (
     <div>
       <h2>{offer.title}</h2>
       <p>{offer.description}</p>
-      
+
       {minPrice && <p>od {minPrice} PLN</p>}
-      
+
       <h3>Ceny</h3>
       {services.map(s => (
         <div key={s.id}>{s.name}: {s.price} PLN</div>
       ))}
-      
+
       <h3>Pakiety</h3>
       {packages.map(p => (
         <div key={p.id}>{p.name}: {p.price} PLN</div>
@@ -144,11 +158,13 @@ export function OfferDetail({ offerId }: { offerId: string }) {
 ## Long-term Maintenance Benefits
 
 ### 1. **Single Source of Truth**
+
 - Price changes happen in ONE place (`pricing.ts`)
 - Update price → automatically reflected everywhere
 - No risk of inconsistent pricing across pages
 
 **Example:**
+
 ```typescript
 // Change price from 240 to 260 PLN
 {
@@ -165,11 +181,13 @@ export function OfferDetail({ offerId }: { offerId: string }) {
 ```
 
 ### 2. **Flexibility in Pricing**
+
 - One offer can have multiple pricing options
 - Pricing can be shared across offers (e.g., Szczeniaczkowo reuses consultation pricing)
 - Easy to add seasonal pricing, promotions, or regional variations
 
 **Example:**
+
 ```typescript
 // Szczeniaczkowo uses same consultation pricing
 {
@@ -182,16 +200,19 @@ export function OfferDetail({ offerId }: { offerId: string }) {
 ```
 
 ### 3. **Type Safety**
+
 - TypeScript ensures IDs are strings
 - Runtime validation can check if referenced IDs exist
 - Prevents typos and broken references
 
 ### 4. **Easy to Extend**
+
 - Add new pricing option → update one offer's `pricingIds` array
 - Add new offer → reference existing pricing IDs
 - Add new pricing tier → create new entry, reference from offers
 
 **Example - Adding promotional package:**
+
 ```typescript
 // 1. Add to pricing.ts
 {
@@ -215,19 +236,21 @@ export function OfferDetail({ offerId }: { offerId: string }) {
 ```
 
 ### 5. **Clear Separation of Concerns**
+
 - **Offers** = service descriptions, features, marketing copy
 - **Pricing** = numeric data, durations, packages
 - **Components** = display logic, formatting, interactions
 
 ### 6. **Testing & Validation**
+
 Easy to validate relationships:
 
 ```typescript
 // Validate all pricingIds reference existing entries
-offers.forEach(offer => {
-  offer.pricingIds?.forEach(id => {
-    const exists = services.find(s => s.id === id) || 
-                   packages.find(p => p.id === id);
+offers.forEach((offer) => {
+  offer.pricingIds?.forEach((id) => {
+    const exists =
+      services.find((s) => s.id === id) || packages.find((p) => p.id === id);
     if (!exists) {
       console.error(`Invalid pricingId: ${id} in offer: ${offer.id}`);
     }
@@ -236,6 +259,7 @@ offers.forEach(offer => {
 ```
 
 ### 7. **Analytics & Reporting**
+
 Query pricing data independently:
 
 ```typescript
@@ -246,12 +270,14 @@ const packageRevenue = packages.reduce((sum, p) => sum + p.price, 0);
 const popularPricing = trackPricingSelection(pricingId);
 
 // Average session price
-const avgPrice = services.reduce((sum, s) => sum + s.price, 0) / services.length;
+const avgPrice =
+  services.reduce((sum, s) => sum + s.price, 0) / services.length;
 ```
 
 ### 8. **Future-Proof Architecture**
 
 **Can easily add:**
+
 - Dynamic pricing (time-based, demand-based)
 - Personalized pricing (loyalty discounts)
 - Geographic pricing (different cities)
@@ -260,6 +286,7 @@ const avgPrice = services.reduce((sum, s) => sum + s.price, 0) / services.length
 - Bundled services
 
 **Example - Geographic pricing:**
+
 ```typescript
 interface ServicePrice {
   id: string;
@@ -273,8 +300,8 @@ interface ServicePrice {
 function getPricingForRegion(pricingIds: string[], region: string) {
   const { services, packages } = getPricingByIds(pricingIds);
   return {
-    services: services.filter(s => !s.region || s.region === region),
-    packages: packages.filter(p => !p.region || p.region === region),
+    services: services.filter((s) => !s.region || s.region === region),
+    packages: packages.filter((p) => !p.region || p.region === region),
   };
 }
 ```
@@ -284,6 +311,7 @@ function getPricingForRegion(pricingIds: string[], region: string) {
 ## Migration from Old Structure
 
 ### Before (duplicated data)
+
 ```typescript
 {
   id: "offer-1",
@@ -293,6 +321,7 @@ function getPricingForRegion(pricingIds: string[], region: string) {
 ```
 
 ### After (reference-based)
+
 ```typescript
 // Offer
 {
@@ -324,6 +353,7 @@ function getPricingForRegion(pricingIds: string[], region: string) {
 ## Maintenance Checklist
 
 When adding new service:
+
 - [ ] Create offer in `offers.ts` with unique `id`
 - [ ] Create pricing entries in `pricing.ts` with unique `id`s
 - [ ] Reference pricing IDs in offer's `pricingIds` array
@@ -331,12 +361,14 @@ When adding new service:
 - [ ] Test with `getPricingByIds()` and `getMinPriceFromIds()`
 
 When changing price:
+
 - [ ] Update numeric value in `pricing.ts`
 - [ ] No changes needed in `offers.ts`
 - [ ] No changes needed in components
 - [ ] Price automatically updates everywhere
 
 When removing pricing:
+
 - [ ] Remove from `pricing.ts`
 - [ ] Remove ID from relevant offer's `pricingIds` array
 - [ ] Verify no components directly reference the removed ID

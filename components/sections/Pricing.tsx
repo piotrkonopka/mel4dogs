@@ -64,9 +64,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
       )}
 
       <div className="mt-4 flex items-baseline gap-2">
-        <span className="text-3xl font-bold text-orange-600">
-          {pkg.price}
-        </span>
+        <span className="text-3xl font-bold text-orange-600">{pkg.price}</span>
         <span className="text-sm text-gray-500">PLN</span>
       </div>
 
@@ -99,9 +97,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
               clipRule="evenodd"
             />
           </svg>
-          <span>
-            {formatDuration(pkg.sessionDuration)} każda sesja
-          </span>
+          <span>{formatDuration(pkg.sessionDuration)} każda sesja</span>
         </li>
         <li className="flex items-center gap-2">
           <svg
@@ -217,7 +213,7 @@ export function Pricing({
           </p>
           <a
             href="#contact"
-            className="mt-6 inline-block rounded-full bg-orange-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2"
+            className="mt-6 inline-block rounded-full bg-orange-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
           >
             Skontaktuj się
           </a>

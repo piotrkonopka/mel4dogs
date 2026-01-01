@@ -98,7 +98,10 @@ export const footerContent: FooterContent = {
     {
       title: "Usługi",
       links: [
-        { label: "Konsultacje behawioralne", href: "/#konsultacje-behawioralne" },
+        {
+          label: "Konsultacje behawioralne",
+          href: "/#konsultacje-behawioralne",
+        },
         { label: "Szczeniaczkowo", href: "/#szczeniaczkowo" },
         { label: "Nosework", href: "/#nosework" },
         { label: "Spacery socjalizacyjne", href: "/#spacery-socjalizacyjne" },
