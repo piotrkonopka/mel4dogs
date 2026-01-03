@@ -6,11 +6,12 @@ Header
 
 Oferta:
 - prezentacja wszystkich, jest 4 - bedzie 6-7 + pakiety
-- dodac acordion domyslna rozwiniata opcja jest polecana 
-- zawsze widoczny obrazek nazwa i cena, po rozwinieciu pokazuje detale
-- przycisk umow, przenosi do formularza
-- zobacz inne uslugi usuwamy bo chemy wszystko zaprezentowac na jednej stronie
-- na desktopie polecane zostawic a po prawej zmiescic 6 zamist 3 i rozwijaja sie na hoverze albo kliku
+- dodac accordion domyslna rozwiniata opcja jest polecana 
+- oferty zawieraja obrazek, zawsze widoczny obrazek nazwa i cena, po rozwinieciu pokazuje detale czyli glownie tekst i przycisk
+- przycisk umow i inne w ofertach przenosza do formularza gdzie opcja ma sie wybrac w zaleznosci jaki przycisk sie kliknelo wiec trzeba powiazac liste w formularzu z ofertami
+- "zobacz inne uslugi" usuwamy bo chcemy wszystko zaprezentowac na jednej stronie choc byc moze w przyszlosci bedziemy miec osobna strone do tego, ale nie teraz
+- na desktopie polecane zostawic a po prawej zmiescic 6 zamist 3 i rozwijaja sie na hoverze albo kliku (accordion)
+- na mobile pierwsza opcja jest polecana i jest rozwinieta reszta opcji w accordionie zamknieta z widocznymi obrazek nazwa i cena
 - po kliknieciu przycisku np konsultacja behavioralna w formularzu ma sie wybrac ta opcja
 
 Dlaczego MEL4dogs?

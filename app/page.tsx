@@ -63,7 +63,7 @@ export default function Home() {
       {/* Main Content */}
       <main id="main">
         <Hero />
-        <Offers offers={offers} limit={4} />
+        <Offers offers={offers} />
         <About />
         <Testimonials />
         <ContactForm />
