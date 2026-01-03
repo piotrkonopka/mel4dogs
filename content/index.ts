@@ -12,6 +12,9 @@ export * from "./offers";
 // Brand values and about content
 export * from "./values";
 
+// About me page content
+export * from "./about-me";
+
 // Pricing configuration
 export * from "./pricing";
 

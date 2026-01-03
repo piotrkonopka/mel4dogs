@@ -179,3 +179,30 @@ export interface PricingConfig {
   packages: PackagePrice[];
   currency: "PLN";
 }
+
+/**
+ * About Me page content
+ */
+export interface AboutMeContent {
+  name: string;
+  title: string;
+  shortBio: string;
+  photo: {
+    src: string;
+    alt: string;
+  };
+  fullBio: string[];
+  qualifications?: string[];
+  philosophy?: string;
+  sections: {
+    bioHeading: string;
+    qualificationsHeading: string;
+    philosophyHeading: string;
+  };
+  cta: {
+    heading: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+  };
+}

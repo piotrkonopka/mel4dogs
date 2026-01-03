@@ -10,6 +10,15 @@
 - **Subject**: Happy dog during behavioral training session
 - **Optimization**: Next.js will auto-generate WebP/AVIF versions
 
+### About Me Page
+
+- **File**: `martyna-photo.jpg`
+- **Dimensions**: 800x1000px (4:5 aspect ratio - portrait)
+- **Format**: JPEG/WebP
+- **Subject**: Professional photo of Martyna Dziemidowicz
+- **Style**: Natural, approachable, possibly with a dog
+- **Note**: Used on the dedicated /o-mnie (About Me) page
+
 ### Open Graph
 
 - **File**: `og-default.jpg`

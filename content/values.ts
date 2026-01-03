@@ -46,6 +46,18 @@ export const brandValues: BrandValue[] = [
 ];
 
 /**
+ * About Me CTA Card
+ * Sixth card in the values grid linking to /o-mnie page
+ */
+export const aboutMeCTA = {
+  title: "Poznaj mnie bliżej",
+  description:
+    "Dowiedz się więcej o mojej drodze, doświadczeniu i podejściu do pracy z psami.",
+  buttonText: "Dowiedz się więcej o mnie",
+  href: "/o-mnie",
+};
+
+/**
  * About Section Content
  * Used in "About" or "Why Us" sections
  */
@@ -57,11 +69,6 @@ export const aboutContent: AboutContent = {
   values: brandValues,
   mission:
     "Wierzę, że każdy pies zasługuje na to, by być słuchanym – nie tylko posłusznym. Moja praca to nie nauczanie komend, tylko budowanie przestrzeni, w której pies i człowiek uczą się siebie nawzajem. Bez presji. Bez dominacji. Z empatią i czasem, jakiego potrzebujecie.",
-  cta: {
-    text: "Umów spotkanie",
-    href: "#contact",
-    variant: "primary",
-  },
 };
 
 /**

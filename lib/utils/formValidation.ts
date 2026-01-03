@@ -89,7 +89,7 @@ export function validateContactForm(data: {
   message: string;
   dogName?: string;
   dogAge?: string;
-  dogBreed?: string;
+  dogWeight?: string;
 }): Record<string, string> {
   const errors: Record<string, string> = {};
 

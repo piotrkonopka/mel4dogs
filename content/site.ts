@@ -16,6 +16,13 @@ export const siteInfo = {
   description:
     "Eksperckie konsultacje behawioralne i usługi treningowe dla psów we Wrocławiu. Pomagamy budować harmonijną relację z Twoim czworonożnym przyjacielem poprzez metody pozytywnego wzmocnienia.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://mel4dogs.pl",
+  ui: {
+    navigation: {
+      toggleMenuLabel: "Przełącz menu",
+      openMenuText: "Otwórz menu",
+      closeMenuText: "Zamknij menu",
+    },
+  },
 } as const;
 
 /**

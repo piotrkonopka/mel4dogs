@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { navigation } from "@/content/site";
+import { navigation, siteInfo } from "@/content/site";
 
 /**
  * Main header with navigation
@@ -69,10 +69,12 @@ export function Header() {
             className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-orange-600 focus:outline-none focus:ring-inset md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
-            aria-label="Przełącz menu"
+            aria-label={siteInfo.ui.navigation.toggleMenuLabel}
           >
             <span className="sr-only">
-              {isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
+              {isMenuOpen
+                ? siteInfo.ui.navigation.closeMenuText
+                : siteInfo.ui.navigation.openMenuText}
             </span>
             {isMenuOpen ? (
               <svg

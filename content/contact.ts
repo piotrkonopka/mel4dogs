@@ -36,9 +36,9 @@ export const contactForm = {
       placeholder: "3 lata",
       required: false,
     },
-    dogBreed: {
-      label: "Rasa psa",
-      placeholder: "Golden Retriever",
+    dogWeight: {
+      label: "Waga psa",
+      placeholder: "15 kg",
       required: false,
     },
     service: {

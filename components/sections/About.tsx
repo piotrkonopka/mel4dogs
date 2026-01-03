@@ -1,4 +1,4 @@
-import { brandValues, aboutContent } from "@/content/values";
+import { brandValues, aboutContent, aboutMeCTA } from "@/content/values";
 import type { BrandValue } from "@/lib/types";
 
 interface ValueCardProps {
@@ -61,6 +61,29 @@ export function About() {
           {brandValues.map((value) => (
             <ValueCard key={value.id} value={value} />
           ))}
+
+          {/* Sixth Card - About Me CTA */}
+          <article className="relative rounded-2xl border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-blue-50 p-6 shadow-md transition-all hover:border-orange-400 hover:shadow-lg sm:p-8">
+            <div
+              className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-orange-200 to-blue-200"
+              aria-hidden="true"
+            >
+              <div className="h-6 w-6 rounded-full bg-orange-600" />
+            </div>
+
+            <h3 className="text-xl font-bold text-gray-900">
+              {aboutMeCTA.title}
+            </h3>
+            <p className="mt-3 leading-relaxed text-gray-600">
+              {aboutMeCTA.description}
+            </p>
+            <a
+              href={aboutMeCTA.href}
+              className="mt-6 inline-block rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
+            >
+              {aboutMeCTA.buttonText}
+            </a>
+          </article>
         </div>
 
         {/* Mission Statement */}
@@ -69,18 +92,6 @@ export function About() {
             <p className="text-lg leading-relaxed text-gray-700">
               {aboutContent.mission}
             </p>
-          </div>
-        )}
-
-        {/* CTA */}
-        {aboutContent.cta && (
-          <div className="mt-12 text-center">
-            <a
-              href={aboutContent.cta.href}
-              className="inline-block rounded-full bg-orange-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
-            >
-              {aboutContent.cta.text}
-            </a>
           </div>
         )}
       </div>

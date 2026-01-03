@@ -342,18 +342,18 @@ export function ContactForm() {
 
                 <div>
                   <label
-                    htmlFor="dogBreed"
+                    htmlFor="dogWeight"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    {contactForm.fields.dogBreed.label}
+                    {contactForm.fields.dogWeight.label}
                   </label>
                   <input
                     type="text"
-                    id="dogBreed"
-                    name="dogBreed"
-                    value={formData.dogBreed}
+                    id="dogWeight"
+                    name="dogWeight"
+                    value={formData.dogWeight}
                     onChange={handleChange}
-                    placeholder={contactForm.fields.dogBreed.placeholder}
+                    placeholder={contactForm.fields.dogWeight.placeholder}
                     className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
                   />
                 </div>

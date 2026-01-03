@@ -9,7 +9,7 @@ export interface ContactFormData {
   phone: string;
   dogName?: string;
   dogAge?: string;
-  dogBreed?: string;
+  dogWeight?: string;
   service: string;
   message: string;
 }
@@ -34,7 +34,7 @@ Telefon: ${data.phone}
 
 ${data.dogName ? `Imię psa: ${data.dogName}` : ""}
 ${data.dogAge ? `Wiek psa: ${data.dogAge}` : ""}
-${data.dogBreed ? `Rasa: ${data.dogBreed}` : ""}
+${data.dogWeight ? `Waga psa: ${data.dogWeight}` : ""}
 
 Usługa: ${data.service}
 

@@ -1,0 +1,34 @@
+Header
+- po lewej stronie logo w formacie png zamiast napisu
+- (po prawej stronie przycisk kontakt beddzie okresowo modyfikowany i linkowac bedzie do innej zawartosci)
+- usunac start (jak user powroci na gore strony?) strzalka z prawej (powrot na gore) - zmienic nazwe na strona glowna
+- lista: 
+    oferta - zaminic  uslugi na oferte. 
+    o nas - zmienic na o mnie
+- (przycisk w headerze pomaranczowy laczymy z oferta i polecanymi, by promowac sezonowa oferte)
+
+Oferta:
+- prezentacja wszystkich, jest 4 - bedzie 6-7 + pakiety
+- dodac acordion domyslna rozwiniata opcja jest polecana 
+- zawsze widoczny obrazek nazwa i cena, po rozwinieciu pokazuje detale
+- przycisk umow, przenosi do formularza
+- zobacz inne uslugi usuwamy bo chemy wszystko zaprezentowac na jednej stronie
+- na desktopie polecane zostawic a po prawej zmiescic 6 zamist 3 i rozwijaja sie na hoverze albo kliku
+- po kliknieciu przycisku np konsultacja behavioralna w formularzu ma sie wybrac ta opcja
+
+Dlaczego MEL4dogs?
+- szosta opcja to dowiedz sie wiecej o mnie ktora prowadzi na osobna strone o mnie, ze zdjeciem i opisem
+
+Temat:
+- niebieski do zmiany
+
+Formularz kontaktowy
+- zamienic rase na wage
+
+Hero:
+- na mobilce obrazek na samej gorze a nie na  dole 
+- Zrozumienie, empatia i relacja z Twoim psem - zamienic na "MEL4dogs SZKOLA DLA PSOW"
+- ponizej "Wroclaw i okolice"
+- ponizej cytat: "Zrozum swojego psa zanim poprosisz go o wspolprace"
+- usunac: Behawiorystyka i trening oparte na emocjach i komunikacji
+- usunac: Jestem Martyna Dziemidowicz – behawiorystką i trenerką psów. Pomagam budować głęboką relację z Twoim psem, opartą na zrozumieniu jego emocji i potrzeb, bez przymusu i dominacji.

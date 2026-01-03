@@ -28,7 +28,7 @@ export function useContactForm(options: UseContactFormOptions = {}) {
     phone: "",
     dogName: "",
     dogAge: "",
-    dogBreed: "",
+    dogWeight: "",
     service: "",
     message: "",
   });
@@ -67,7 +67,7 @@ export function useContactForm(options: UseContactFormOptions = {}) {
       phone: "",
       dogName: "",
       dogAge: "",
-      dogBreed: "",
+      dogWeight: "",
       service: "",
       message: "",
     });
