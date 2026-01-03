@@ -13,13 +13,41 @@ export function Hero() {
       className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-teal-50 pt-20 md:pt-24"
       aria-labelledby="hero-heading"
     >
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Content */}
-          <div className="flex flex-col justify-center">
+          {/* Hero Image - First on mobile, second on desktop */}
+          <div className="relative order-1 lg:order-2">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-teal-100 shadow-2xl">
+              <Image
+                src="https://res.cloudinary.com/dy2ezlbgp/image/upload/v1766420749/ea0a840d72184c0deca9475de15c74f1_jdubw2.png"
+                alt="Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu"
+                width={1200}
+                height={900}
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                className="h-full w-full object-contain"
+                quality={90}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAB//2Q=="
+              />
+            </div>
+
+            {/* Decorative elements */}
+            <div
+              className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-orange-200 opacity-50 blur-3xl"
+              aria-hidden="true"
+            ></div>
+            <div
+              className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-teal-200 opacity-50 blur-3xl"
+              aria-hidden="true"
+            ></div>
+          </div>
+
+          {/* Content - Second on mobile, first on desktop */}
+          <div className="order-2 flex flex-col justify-center lg:order-1">
             <h1
               id="hero-heading"
-              className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
+              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"
             >
               {heroContent.headline}
             </h1>
@@ -113,34 +141,6 @@ export function Hero() {
                 <span>Pozytywne metody</span>
               </div>
             </div>
-          </div>
-
-          {/* Hero Image */}
-          <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-teal-100 shadow-2xl">
-              <Image
-                src="https://res.cloudinary.com/dy2ezlbgp/image/upload/v1766420749/ea0a840d72184c0deca9475de15c74f1_jdubw2.png"
-                alt="Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu"
-                width={1200}
-                height={900}
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                className="h-full w-full object-contain"
-                quality={90}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAB//2Q=="
-              />
-            </div>
-
-            {/* Decorative elements */}
-            <div
-              className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-orange-200 opacity-50 blur-3xl"
-              aria-hidden="true"
-            ></div>
-            <div
-              className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-teal-200 opacity-50 blur-3xl"
-              aria-hidden="true"
-            ></div>
           </div>
         </div>
       </div>

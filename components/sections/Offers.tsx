@@ -116,7 +116,7 @@ export function Offers({ offers, limit = 4 }: OffersProps) {
   return (
     <section
       id="services"
-      className="bg-gray-50 py-16 sm:py-24"
+      className="bg-gray-50 py-12 sm:py-16"
       aria-labelledby="offers-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

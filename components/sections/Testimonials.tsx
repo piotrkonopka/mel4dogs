@@ -7,7 +7,7 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="bg-gradient-to-br from-teal-50 via-white to-orange-50 py-16 sm:py-24"
+      className="bg-gradient-to-br from-teal-50 via-white to-orange-50 py-12 sm:py-16"
       aria-labelledby="testimonials-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

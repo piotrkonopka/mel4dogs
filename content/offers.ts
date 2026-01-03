@@ -5,10 +5,9 @@ import type { Offer, HeroContent, Testimonial, FAQItem } from "@/lib/types";
  * Main headline and CTA on homepage
  */
 export const heroContent: HeroContent = {
-  headline: "Zrozumienie, empatia i relacja z Twoim psem",
-  subheadline: "Behawiorystyka i trening oparte na emocjach i komunikacji",
-  description:
-    "Jestem Martyna Dziemidowicz – behawiorystką i trenerką psów. Pomagam budować głęboką relację z Twoim psem, opartą na zrozumieniu jego emocji i potrzeb, bez przymusu i dominacji.",
+  headline: "SZKOŁA DLA PSÓW",
+  subheadline: "Wrocław i okolice",
+  description: "Zrozum swojego psa zanim poprosisz go o współpracę",
   cta: {
     text: "Umów konsultację",
     href: "#contact",

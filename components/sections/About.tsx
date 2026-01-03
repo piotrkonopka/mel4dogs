@@ -34,7 +34,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="bg-white py-16 sm:py-24"
+      className="bg-white py-12 sm:py-16"
       aria-labelledby="about-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
