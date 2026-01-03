@@ -26,8 +26,8 @@ export function Footer() {
               className="text-2xl font-bold text-white"
               aria-label="MEL4 dogs - strona główna"
             >
-              <span className="text-orange-500">MEL4</span>{" "}
-              <span className="text-blue-500">dogs</span>
+              <span className="text-orange-600">MEL4</span>{" "}
+              <span className="text-teal-500">dogs</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed">
               {footerContent.tagline}
@@ -102,7 +102,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-orange-500 focus:text-orange-500 focus:outline-none"
+                      className="text-sm transition-colors hover:text-orange-600 focus:text-orange-600 focus:outline-none"
                     >
                       {link.label}
                     </Link>

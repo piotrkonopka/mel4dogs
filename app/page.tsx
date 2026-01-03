@@ -53,9 +53,9 @@ export default function Home() {
       <JSONLD data={professionalServiceSchema} />
 
       {/* Skip to main content - accessibility */}
-      <a href="#main" className="skip-to-main">
+      {/* <a href="#main" className="skip-to-main">
         Skip to main content
-      </a>
+      </a> */}
 
       {/* Header */}
       <Header />

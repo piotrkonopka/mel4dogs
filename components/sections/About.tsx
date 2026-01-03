@@ -14,7 +14,7 @@ function ValueCard({ value }: ValueCardProps) {
     <article className="relative rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-orange-300 hover:shadow-md sm:p-8">
       {/* Icon placeholder */}
       <div
-        className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-orange-100 to-blue-100"
+        className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-orange-100 to-teal-100"
         aria-hidden="true"
       >
         <div className="h-6 w-6 rounded-full bg-orange-600" />
@@ -63,9 +63,9 @@ export function About() {
           ))}
 
           {/* Sixth Card - About Me CTA */}
-          <article className="relative rounded-2xl border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-blue-50 p-6 shadow-md transition-all hover:border-orange-400 hover:shadow-lg sm:p-8">
+          <article className="relative rounded-2xl border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-teal-50 p-6 shadow-md transition-all hover:border-orange-400 hover:shadow-lg sm:p-8">
             <div
-              className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-orange-200 to-blue-200"
+              className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-orange-200 to-teal-200"
               aria-hidden="true"
             >
               <div className="h-6 w-6 rounded-full bg-orange-600" />
@@ -88,7 +88,7 @@ export function About() {
 
         {/* Mission Statement */}
         {aboutContent.mission && (
-          <div className="mx-auto mt-16 max-w-3xl rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-blue-50 p-8 text-center">
+          <div className="mx-auto mt-16 max-w-3xl rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-teal-50 p-8 text-center">
             <p className="text-lg leading-relaxed text-gray-700">
               {aboutContent.mission}
             </p>

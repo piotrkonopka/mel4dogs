@@ -130,7 +130,7 @@ export function ContactForm() {
             </div>
 
             {/* Service Area */}
-            <div className="mt-12 rounded-2xl border border-blue-200 bg-blue-50 p-6">
+            <div className="mt-12 rounded-2xl border border-teal-200 bg-teal-50 p-6">
               <h3 className="font-semibold text-gray-900">
                 {contactSection.serviceArea.title}
               </h3>

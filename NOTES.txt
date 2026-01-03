@@ -1,10 +1,7 @@
 Header
 - po lewej stronie logo w formacie png zamiast napisu
 - (po prawej stronie przycisk kontakt beddzie okresowo modyfikowany i linkowac bedzie do innej zawartosci)
-- usunac start (jak user powroci na gore strony?) strzalka z prawej (powrot na gore) - zmienic nazwe na strona glowna
-- lista: 
-    oferta - zaminic  uslugi na oferte. 
-    o nas - zmienic na o mnie
+- (jak user powroci na gore strony?) strzalka z prawej (powrot na gore)
 - (przycisk w headerze pomaranczowy laczymy z oferta i polecanymi, by promowac sezonowa oferte)
 
 Oferta:
@@ -17,7 +14,7 @@ Oferta:
 - po kliknieciu przycisku np konsultacja behavioralna w formularzu ma sie wybrac ta opcja
 
 Dlaczego MEL4dogs?
-- szosta opcja to dowiedz sie wiecej o mnie ktora prowadzi na osobna strone o mnie, ze zdjeciem i opisem
+- obecnie zabiera 5 sekcji, szosta opcja to dowiedz sie wiecej o mnie ktora prowadzi na osobna strone o mnie, ze zdjeciem i opisem
 
 Temat:
 - niebieski do zmiany

@@ -35,7 +35,7 @@ export function Header() {
             aria-label="MEL4 dogs - strona główna"
           >
             <span className="text-orange-600">MEL4</span>{" "}
-            <span className="text-blue-600">dogs</span>
+            <span className="text-teal-500">dogs</span>
           </Link>
 
           {/* Desktop Navigation */}

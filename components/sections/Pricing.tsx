@@ -47,7 +47,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
     <div
       className={`rounded-xl border-2 p-6 transition-all hover:shadow-lg ${
         pkg.highlighted
-          ? "border-orange-600 bg-gradient-to-br from-orange-50 to-blue-50 ring-2 ring-orange-600 ring-offset-2"
+          ? "border-orange-600 bg-gradient-to-br from-orange-50 to-teal-50 ring-2 ring-orange-600 ring-offset-2"
           : "border-gray-200 bg-white hover:border-orange-300"
       }`}
     >
@@ -71,7 +71,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
       <ul className="mt-4 space-y-2 text-sm text-gray-600">
         <li className="flex items-center gap-2">
           <svg
-            className="h-5 w-5 text-blue-600"
+            className="h-5 w-5 text-teal-500"
             fill="currentColor"
             viewBox="0 0 20 20"
             aria-hidden="true"
@@ -86,7 +86,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
         </li>
         <li className="flex items-center gap-2">
           <svg
-            className="h-5 w-5 text-blue-600"
+            className="h-5 w-5 text-teal-500"
             fill="currentColor"
             viewBox="0 0 20 20"
             aria-hidden="true"
@@ -101,7 +101,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
         </li>
         <li className="flex items-center gap-2">
           <svg
-            className="h-5 w-5 text-blue-600"
+            className="h-5 w-5 text-teal-500"
             fill="currentColor"
             viewBox="0 0 20 20"
             aria-hidden="true"

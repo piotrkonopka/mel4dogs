@@ -23,9 +23,9 @@ export default function AboutMePage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <main className="min-h-screen bg-gradient-to-b from-teal-50 to-white">
         {/* Hero Section with Photo */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-blue-50 to-orange-50 py-12 sm:py-16">
+        <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-teal-50 to-orange-50 py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2">
               {/* Photo */}
@@ -77,7 +77,7 @@ export default function AboutMePage() {
         {/* Qualifications */}
         {aboutMeContent.qualifications &&
           aboutMeContent.qualifications.length > 0 && (
-            <section className="bg-blue-50 py-12 sm:py-16">
+            <section className="bg-teal-50 py-12 sm:py-16">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
                   {aboutMeContent.sections.qualificationsHeading}
@@ -106,7 +106,7 @@ export default function AboutMePage() {
               <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
                 {aboutMeContent.sections.philosophyHeading}
               </h2>
-              <div className="mt-8 rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-blue-50 p-8">
+              <div className="mt-8 rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-teal-50 p-8">
                 <p className="text-lg leading-relaxed text-gray-700">
                   {aboutMeContent.philosophy}
                 </p>

@@ -10,7 +10,7 @@ import { heroContent } from "@/content/offers";
 export function Hero() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-blue-50 pt-20 md:pt-24"
+      className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-teal-50 pt-20 md:pt-24"
       aria-labelledby="hero-heading"
     >
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
@@ -58,7 +58,7 @@ export function Hero() {
               {heroContent.secondaryCta && (
                 <Link
                   href={heroContent.secondaryCta.href}
-                  className="inline-flex items-center justify-center rounded-full border-2 border-blue-600 bg-white px-8 py-4 text-base font-semibold text-blue-600 transition-all hover:bg-blue-50 focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:outline-none"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-teal-500 bg-white px-8 py-4 text-base font-semibold text-teal-500 transition-all hover:bg-teal-50 focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 focus:outline-none"
                 >
                   {heroContent.secondaryCta.text}
                 </Link>
@@ -117,7 +117,7 @@ export function Hero() {
 
           {/* Hero Image */}
           <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-blue-100 shadow-2xl">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-teal-100 shadow-2xl">
               <Image
                 src="https://res.cloudinary.com/dy2ezlbgp/image/upload/v1766420749/ea0a840d72184c0deca9475de15c74f1_jdubw2.png"
                 alt="Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu"
@@ -138,7 +138,7 @@ export function Hero() {
               aria-hidden="true"
             ></div>
             <div
-              className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-blue-200 opacity-50 blur-3xl"
+              className="absolute -bottom-4 -left-4 h-32 w-32 rounded-full bg-teal-200 opacity-50 blur-3xl"
               aria-hidden="true"
             ></div>
           </div>

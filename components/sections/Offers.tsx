@@ -69,7 +69,7 @@ function OfferCard({ offer }: OfferCardProps) {
         {offer.features.slice(0, 4).map((feature, index) => (
           <li key={index} className="flex items-start gap-3">
             <svg
-              className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-600"
+              className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal-500"
               fill="currentColor"
               viewBox="0 0 20 20"
               aria-hidden="true"
