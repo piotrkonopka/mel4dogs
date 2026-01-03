@@ -57,10 +57,10 @@ export function Header() {
 
           {/* CTA Button Desktop */}
           <Link
-            href="#contact"
+            href="#services"
             className="hidden rounded-full bg-orange-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none md:block"
           >
-            Kontakt
+            Oferta
           </Link>
 
           {/* Mobile Menu Button */}
@@ -127,11 +127,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="#contact"
+              href="#services"
               className="mt-4 block rounded-full bg-orange-600 px-6 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-orange-700"
               onClick={() => setIsMenuOpen(false)}
             >
-              Kontakt
+              Oferta
             </Link>
           </nav>
         </div>

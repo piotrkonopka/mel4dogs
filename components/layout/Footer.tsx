@@ -114,26 +114,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 border-t border-gray-800 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm">
-              &copy; {currentYear} {siteInfo.name}. Wszelkie prawa zastrzeżone.
-            </p>
-            <div className="flex gap-6 text-sm">
-              <Link
-                href="/privacy"
-                className="transition-colors hover:text-orange-500 focus:text-orange-500 focus:outline-none"
-              >
-                Polityka prywatności
-              </Link>
-              <Link
-                href="/terms"
-                className="transition-colors hover:text-orange-500 focus:text-orange-500 focus:outline-none"
-              >
-                Regulamin
-              </Link>
-            </div>
-          </div>
+        <div className="mt-12 border-t border-gray-800 pt-8 text-center">
+          <p className="text-sm">
+            &copy; {currentYear} {siteInfo.name}. Wszelkie prawa zastrzeżone.
+          </p>
         </div>
       </div>
     </footer>

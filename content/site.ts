@@ -24,19 +24,19 @@ export const siteInfo = {
  */
 export const navigation: NavItem[] = [
   {
-    label: "Start",
+    label: "Strona główna",
     href: "/",
     description: "Powrót do strony głównej",
   },
   {
-    label: "Usługi",
+    label: "Oferta",
     href: "/#services",
     description: "Zobacz nasze usługi treningowe",
   },
   {
-    label: "O nas",
+    label: "O mnie",
     href: "/#about",
-    description: "Poznaj nasze podejście",
+    description: "Poznaj moje podejście",
   },
   {
     label: "Opinie",
@@ -96,7 +96,7 @@ export const footerContent: FooterContent = {
   copyright: `© ${new Date().getFullYear()} MEL4 dogs. Wszelkie prawa zastrzeżone.`,
   sections: [
     {
-      title: "Usługi",
+      title: "Oferta",
       links: [
         {
           label: "Konsultacje behawioralne",
@@ -108,10 +108,10 @@ export const footerContent: FooterContent = {
       ],
     },
     {
-      title: "O nas",
+      title: "O mnie",
       links: [
-        { label: "O nas", href: "/#about" },
-        { label: "Nasze podejście", href: "/#values" },
+        { label: "O mnie", href: "/#about" },
+        { label: "Moje podejście", href: "/#values" },
         { label: "Historie sukcesu", href: "/#testimonials" },
         { label: "FAQ", href: "/#contact" },
       ],
