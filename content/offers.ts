@@ -32,8 +32,8 @@ export const heroContent: HeroContent = {
     href: "#services",
     variant: "outline",
   },
-  image: "/images/hero-dog.jpg",
-  imageAlt: "Szczęśliwy pies z opiekunem podczas wspólnego spaceru",
+  image: "https://res.cloudinary.com/dy2ezlbgp/image/upload/v1766420749/ea0a840d72184c0deca9475de15c74f1_jdubw2.png",
+  imageAlt: "Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu",
 };
 
 /**

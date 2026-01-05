@@ -103,8 +103,8 @@ export interface HeroContent {
   description?: string;
   cta: CTAButton;
   secondaryCta?: CTAButton;
-  image?: string;
-  imageAlt?: string;
+  image: string;
+  imageAlt: string;
 }
 
 /**

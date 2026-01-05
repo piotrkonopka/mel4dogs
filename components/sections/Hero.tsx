@@ -19,8 +19,8 @@ export function Hero() {
           <div className="relative order-1 lg:order-2">
             <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-white">
               <Image
-                src="https://res.cloudinary.com/dy2ezlbgp/image/upload/v1766420749/ea0a840d72184c0deca9475de15c74f1_jdubw2.png"
-                alt="Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu"
+                src={heroContent.image}
+                alt={heroContent.imageAlt}
                 width={1200}
                 height={900}
                 priority
