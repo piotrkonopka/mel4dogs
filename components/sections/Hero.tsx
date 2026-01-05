@@ -17,7 +17,7 @@ export function Hero() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Hero Image - First on mobile, second on desktop */}
           <div className="relative order-1 lg:order-2">
-            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-orange-100 to-teal-100 shadow-2xl">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-white">
               <Image
                 src="https://res.cloudinary.com/dy2ezlbgp/image/upload/v1766420749/ea0a840d72184c0deca9475de15c74f1_jdubw2.png"
                 alt="Szczęśliwy pies podczas treningu behawioralnego z MEL4 dogs we Wrocławiu"
@@ -27,8 +27,6 @@ export function Hero() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="h-full w-full object-contain"
                 quality={75}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAB//2Q=="
               />
             </div>
 
