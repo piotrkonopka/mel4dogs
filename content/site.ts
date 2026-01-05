@@ -31,11 +31,6 @@ export const siteInfo = {
  */
 export const navigation: NavItem[] = [
   {
-    label: "Strona główna",
-    href: "/",
-    description: "Powrót do strony głównej",
-  },
-  {
     label: "Oferta",
     href: "/#services",
     description: "Zobacz nasze usługi treningowe",
@@ -74,7 +69,7 @@ export const contactInfo: ContactInfo = {
 
 /**
  * Social media links
- * Displayed in footer and possibly header
+ * Displayed in footer and header
  */
 export const socialLinks: SocialLink[] = [
   {
@@ -86,11 +81,6 @@ export const socialLinks: SocialLink[] = [
     platform: "Instagram",
     url: "https://instagram.com/mel4dogs",
     ariaLabel: "Śledź nas na Instagramie",
-  },
-  {
-    platform: "YouTube",
-    url: "https://youtube.com/@mel4dogs",
-    ariaLabel: "Subskrybuj nasz kanał YouTube",
   },
 ];
 
