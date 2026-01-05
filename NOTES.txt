@@ -53,7 +53,7 @@ Hero:
 + brak efektu cienia na zdjeciu
 
 Oferta:
-- kafelki - bardziej jak sekcja o mnie, klientowi zalezy by cala oferta zmiescila sie we viewport na desktopie
++ kafelki - bardziej jak sekcja o mnie, klientowi zalezy by cala oferta zmiescila sie we viewport na desktopie
 
 Partnerzy:
 - sekcja z partnerami

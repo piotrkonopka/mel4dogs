@@ -82,7 +82,9 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
               clipRule="evenodd"
             />
           </svg>
-          <span>{pkg.sessionsCount} {pricingUI.sessionsLabel}</span>
+          <span>
+            {pkg.sessionsCount} {pricingUI.sessionsLabel}
+          </span>
         </li>
         <li className="flex items-center gap-2">
           <svg
@@ -97,7 +99,9 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
               clipRule="evenodd"
             />
           </svg>
-          <span>{formatDuration(pkg.sessionDuration)} {pricingUI.eachSessionLabel}</span>
+          <span>
+            {formatDuration(pkg.sessionDuration)} {pricingUI.eachSessionLabel}
+          </span>
         </li>
         <li className="flex items-center gap-2">
           <svg
@@ -112,7 +116,9 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
               clipRule="evenodd"
             />
           </svg>
-          <span>{formatPrice(pkg.pricePerSession)} {pricingUI.perSessionLabel}</span>
+          <span>
+            {formatPrice(pkg.pricePerSession)} {pricingUI.perSessionLabel}
+          </span>
         </li>
         {pkg.savings && pkg.savings > 0 && (
           <li className="flex items-center gap-2 font-semibold text-green-600">
@@ -128,7 +134,9 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
                 clipRule="evenodd"
               />
             </svg>
-            <span>{pricingUI.savingsLabel} {formatPrice(pkg.savings)}</span>
+            <span>
+              {pricingUI.savingsLabel} {formatPrice(pkg.savings)}
+            </span>
           </li>
         )}
       </ul>

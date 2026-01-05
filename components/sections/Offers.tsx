@@ -1,39 +1,38 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 import type { Offer } from "@/lib/types";
 import { getMinPriceFromIds } from "@/content/pricing";
 import { offersUI } from "@/content/offers";
 
-interface OfferAccordionItemProps {
+interface OfferModalProps {
   offer: Offer;
   isOpen: boolean;
-  onToggle: () => void;
-  isHighlighted?: boolean;
+  onClose: () => void;
+  minPrice: number | null;
 }
 
 /**
- * Single offer accordion item
- * Shows image, name, price always - details on expand
+ * Modal component for offer details
+ * Displays full offer information with close button and CTA
  */
-function OfferAccordionItem({
-  offer,
-  isOpen,
-  onToggle,
-  isHighlighted = false,
-}: OfferAccordionItemProps) {
-  const minPrice = offer.pricingIds
-    ? getMinPriceFromIds(offer.pricingIds)
-    : null;
+function OfferModal({ offer, isOpen, onClose, minPrice }: OfferModalProps) {
+  // Block body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const handleBooking = () => {
-    // Navigate to contact form with pre-selected service
+    onClose();
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
-      // Set service in form after scroll
       setTimeout(() => {
         const serviceSelect = document.querySelector(
           'select[name="service"]'
@@ -46,191 +45,188 @@ function OfferAccordionItem({
     }
   };
 
+  if (!isOpen) return null;
+
   return (
-    <article
-      className={`rounded-2xl border-2 bg-white shadow-md transition-all ${
-        isOpen ? "shadow-xl" : "hover:shadow-lg"
-      } ${
-        isHighlighted
-          ? "border-orange-400"
-          : "border-gray-200 hover:border-orange-200"
-      }`}
+    <div
+      className="fixed inset-0 z-[100] overflow-y-auto"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
     >
-      {/* Always visible header */}
-      <button
-        onClick={onToggle}
-        className="flex w-full items-center gap-4 p-4 text-left transition-colors hover:bg-gray-50 sm:p-6"
-        aria-expanded={isOpen}
-      >
-        {/* Image placeholder */}
-        <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-orange-100 to-teal-100 sm:h-20 sm:w-20">
-          <div className="flex h-full items-center justify-center">
-            <div className="h-8 w-8 rounded-full bg-orange-600 sm:h-10 sm:w-10" />
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black/75 transition-opacity"
+        onClick={onClose}
+      ></div>
+
+      {/* Centering wrapper */}
+      <div className="flex min-h-full items-center justify-center p-4 sm:p-6 md:p-8">
+        {/* Modal content */}
+        <div className="relative z-10 w-full max-w-2xl transform rounded-2xl bg-white shadow-2xl transition-all">
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-600 shadow-xl ring-1 ring-gray-200 transition-colors hover:bg-orange-600 hover:text-white focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
+            aria-label="Zamknij"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          {/* Modal body */}
+          <div className="p-6 sm:p-8">
+            {/* Image */}
+            <div className="relative mb-6 aspect-video w-full overflow-hidden rounded-xl bg-gradient-to-br from-orange-100 to-teal-100">
+              <div className="flex h-full items-center justify-center">
+                <div className="h-20 w-20 rounded-full bg-orange-600" />
+              </div>
+            </div>
+
+            {/* Title and price */}
+            <h2
+              id="modal-title"
+              className="text-2xl font-bold text-gray-900 sm:text-3xl"
+            >
+              {offer.title}
+            </h2>
+
+            {minPrice && (
+              <div className="mt-3 flex items-baseline gap-2">
+                <span className="text-sm text-gray-600">
+                  {offersUI.pricePrefix}
+                </span>
+                <span className="text-3xl font-bold text-orange-600">
+                  {minPrice}
+                </span>
+                <span className="text-sm text-gray-600">
+                  {offersUI.priceSuffix}
+                </span>
+              </div>
+            )}
+
+            {/* Description */}
+            <p className="mt-6 leading-relaxed text-gray-600">
+              {offer.description}
+            </p>
+
+            {offer.longDescription && (
+              <p className="mt-4 text-sm leading-relaxed text-gray-600">
+                {offer.longDescription}
+              </p>
+            )}
+
+            {/* Features list */}
+            {offer.features && offer.features.length > 0 && (
+              <ul className="mt-6 space-y-3">
+                {offer.features.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <svg
+                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal-700"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span className="text-sm text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* CTA Button */}
+            <button
+              onClick={handleBooking}
+              className="mt-8 w-full rounded-full bg-orange-600 py-4 text-center text-base font-semibold text-white shadow-lg transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
+            >
+              {offersUI.ctaButton} {offer.title}
+            </button>
           </div>
         </div>
-
-        {/* Title and price */}
-        <div className="flex-grow">
-          <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
-            {offer.title}
-          </h3>
-          {minPrice && (
-            <p className="mt-1 text-sm text-gray-600">
-              <span className="text-orange-600 font-semibold">{offersUI.pricePrefix} {minPrice} {offersUI.priceSuffix}</span>
-            </p>
-          )}
-        </div>
-
-        {/* Expand icon */}
-        <svg
-          className={`h-6 w-6 flex-shrink-0 text-gray-400 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
-
-      {/* Expandable details */}
-      {isOpen && (
-        <div className="border-t border-gray-100 p-4 sm:p-6">
-          <p className="text-gray-600">{offer.description}</p>
-
-          {offer.longDescription && (
-            <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              {offer.longDescription}
-            </p>
-          )}
-
-          {/* Features */}
-          <ul className="mt-6 space-y-2">
-            {offer.features.map((feature, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <svg
-                  className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal-700"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-sm text-gray-700">{feature}</span>
-              </li>
-            ))}
-          </ul>
-
-          {/* CTA Button */}
-          <button
-            onClick={handleBooking}
-            className="mt-6 w-full rounded-full bg-orange-600 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
-          >
-            {offersUI.ctaButton} {offer.title}
-          </button>
-        </div>
-      )}
-    </article>
+      </div>
+    </div>
   );
 }
 
-interface HighlightedOfferProps {
+interface OfferCardProps {
   offer: Offer;
+  isHighlighted: boolean;
+  onClick: () => void;
 }
 
 /**
- * Highlighted offer card - always expanded, standalone
+ * Offer card component
+ * Clickable card that opens modal with full details
  */
-function HighlightedOffer({ offer }: HighlightedOfferProps) {
+function OfferCard({ offer, isHighlighted, onClick }: OfferCardProps) {
   const minPrice = offer.pricingIds
     ? getMinPriceFromIds(offer.pricingIds)
     : null;
 
-  const handleBooking = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => {
-        const serviceSelect = document.querySelector(
-          'select[name="service"]'
-        ) as HTMLSelectElement;
-        if (serviceSelect) {
-          serviceSelect.value = offer.title;
-          serviceSelect.dispatchEvent(new Event("change", { bubbles: true }));
-        }
-      }, 500);
-    }
-  };
-
   return (
-    <article className="rounded-2xl border-2 border-orange-600 bg-gradient-to-br from-orange-50 to-teal-50 p-6 shadow-xl ring-2 ring-orange-600 ring-offset-2 sm:p-8">
-      <div className="mb-4 inline-flex rounded-full bg-orange-600 px-3 py-1 text-xs font-semibold text-white">
-        {offersUI.highlightedBadge}
-      </div>
-
-      {/* Image placeholder */}
-      <div className="relative mb-6 h-32 w-full overflow-hidden rounded-xl bg-gradient-to-br from-orange-100 to-teal-100 sm:h-40">
-        <div className="flex h-full items-center justify-center">
-          <div className="h-16 w-16 rounded-full bg-orange-600 sm:h-20 sm:w-20" />
-        </div>
-      </div>
-
-      <h3 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-        {offer.title}
-      </h3>
-
-      {minPrice && (
-        <div className="mt-4 flex items-baseline gap-2">
-          <span className="text-sm text-gray-600">{offersUI.pricePrefix}</span>
-          <span className="text-4xl font-bold text-orange-600">{minPrice}</span>
-          <span className="text-sm text-gray-600">{offersUI.priceSuffix}</span>
+    <article
+      className={`relative cursor-pointer overflow-hidden rounded-2xl border-2 bg-white shadow-md transition-all hover:shadow-xl ${
+        isHighlighted
+          ? "border-orange-500 ring-2 ring-orange-500 ring-offset-2"
+          : "border-gray-200 hover:border-orange-300"
+      }`}
+      onClick={onClick}
+    >
+      {/* Badge for highlighted */}
+      {isHighlighted && (
+        <div className="absolute top-4 right-4 z-10 rounded-full bg-orange-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
+          {offersUI.highlightedBadge}
         </div>
       )}
 
-      <p className="mt-4 text-gray-700">{offer.description}</p>
+      <div className="p-6">
+        {/* Image placeholder - large and prominent */}
+        <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-xl bg-gradient-to-br from-orange-100 to-teal-100">
+          <div className="flex h-full items-center justify-center">
+            <div className="h-16 w-16 rounded-full bg-orange-600" />
+          </div>
+        </div>
 
-      {offer.longDescription && (
-        <p className="mt-4 text-sm leading-relaxed text-gray-600">
-          {offer.longDescription}
-        </p>
-      )}
+        {/* Title */}
+        <h3 className="text-xl font-bold text-gray-900 lg:text-2xl">
+          {offer.title}
+        </h3>
 
-      {/* Features */}
-      <ul className="mt-6 space-y-3">
-        {offer.features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-3">
-            <svg
-              className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal-700"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="text-sm text-gray-700">{feature}</span>
-          </li>
-        ))}
-      </ul>
+        {/* Price */}
+        {minPrice && (
+          <div className="mt-2 flex items-baseline gap-2">
+            <span className="text-sm text-gray-600">
+              {offersUI.pricePrefix}
+            </span>
+            <span className="text-2xl font-bold text-orange-600">
+              {minPrice}
+            </span>
+            <span className="text-sm text-gray-600">
+              {offersUI.priceSuffix}
+            </span>
+          </div>
+        )}
 
-      {/* CTA Button */}
-      <button
-        onClick={handleBooking}
-        className="mt-8 w-full rounded-full bg-orange-600 py-4 text-center text-base font-semibold text-white shadow-lg transition-all hover:bg-orange-700 hover:shadow-xl focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
-      >
-        {offersUI.ctaButton} {offer.title}
-      </button>
+        {/* Click indicator */}
+        <div className="mt-4 flex items-center justify-center text-sm text-gray-500">
+          Kliknij aby zobaczyć szczegóły
+        </div>
+      </div>
     </article>
   );
 }
@@ -240,21 +236,34 @@ interface OffersProps {
 }
 
 /**
- * Offers section with accordion
- * Highlighted offer separate, others in accordion
- * Desktop: highlighted + 6 in accordion (hover/click to expand)
- * Mobile: highlighted expanded, others collapsed
+ * Offers section with modal
+ * All offers displayed as cards in grid
+ * Click opens modal with full details
+ * Desktop: 3x2 grid (6 items)
+ * Mobile: single column
  */
 export function Offers({ offers }: OffersProps) {
-  const highlightedOffer = offers.find((offer) => offer.highlighted);
-  const otherOffers = offers.filter((offer) => !offer.highlighted);
+  // Sort: highlighted first, then others
+  const sortedOffers = [...offers].sort((a, b) => {
+    if (a.highlighted && !b.highlighted) return -1;
+    if (!a.highlighted && b.highlighted) return 1;
+    return 0;
+  });
 
-  // On mobile, first item (highlighted) is open by default
-  const [openIndex, setOpenIndex] = useState<number>(0);
+  // State: which offer modal is open
+  const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
 
-  const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? -1 : index);
+  const handleOpenModal = (offer: Offer) => {
+    setSelectedOffer(offer);
   };
+
+  const handleCloseModal = () => {
+    setSelectedOffer(null);
+  };
+
+  const selectedMinPrice = selectedOffer?.pricingIds
+    ? getMinPriceFromIds(selectedOffer.pricingIds)
+    : null;
 
   return (
     <section
@@ -276,28 +285,28 @@ export function Offers({ offers }: OffersProps) {
           </p>
         </div>
 
-        {/* Layout: Highlighted + Accordion */}
-        <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-8">
-          {/* Highlighted offer - full column on desktop */}
-          {highlightedOffer && (
-            <div className="lg:col-span-1">
-              <HighlightedOffer offer={highlightedOffer} />
-            </div>
-          )}
-
-          {/* Other offers in accordion */}
-          <div className="space-y-4 lg:col-span-2">
-            {otherOffers.map((offer, index) => (
-              <OfferAccordionItem
-                key={offer.id}
-                offer={offer}
-                isOpen={openIndex === index}
-                onToggle={() => handleToggle(index)}
-              />
-            ))}
-          </div>
+        {/* Grid of offer cards */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-8">
+          {sortedOffers.map((offer) => (
+            <OfferCard
+              key={offer.id}
+              offer={offer}
+              isHighlighted={offer.highlighted || false}
+              onClick={() => handleOpenModal(offer)}
+            />
+          ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedOffer && (
+        <OfferModal
+          offer={selectedOffer}
+          isOpen={!!selectedOffer}
+          onClose={handleCloseModal}
+          minPrice={selectedMinPrice}
+        />
+      )}
     </section>
   );
 }

@@ -65,6 +65,19 @@
 - **Brak dynamicznych API calls** - wszystko statyczne
 - **Metadata w layout.tsx** - dla SEO
 
+### Validation After Changes
+
+⚠️ **ZAWSZE po edycji plików uruchom:**
+
+```bash
+npm run lint:fix && npm run type-check && npm run build
+```
+
+- Sprawdza ESLint errors
+- Sprawdza TypeScript typy
+- Testuje production build
+- **NIE commituj bez tej weryfikacji!**
+
 ### CSS/Tailwind
 
 - **Tailwind first** - używaj utility classes
@@ -86,6 +99,7 @@
 - **NIE TWÓRZ mikro-plików** - unikaj nadmiernej fragmentacji (np. osobny ui.ts)
 
 #### Przykład dobrej struktury:
+
 ```typescript
 // content/offers.ts
 export const offersUI = { sectionHeading: "...", ctaButton: "..." };
