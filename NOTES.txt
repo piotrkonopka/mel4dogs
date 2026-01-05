@@ -1,5 +1,5 @@
 Header
-- po lewej stronie logo w formacie png zamiast napisu
+- po lewej stronie logo w formacie png zamiast napisu, mozna wowczas usunac link do strony glownej i klikniecie w logo bedzie przenosic do strony glownej
 - (po prawej stronie przycisk kontakt beddzie okresowo modyfikowany i linkowac bedzie do innej zawartosci)
 - (jak user powroci na gore strony?) strzalka z prawej (powrot na gore)
 - (przycisk w headerze pomaranczowy laczymy z oferta i polecanymi, by promowac sezonowa oferte)
@@ -30,3 +30,30 @@ Hero:
 - ponizej cytat: "Zrozum swojego psa zanim poprosisz go o wspolprace"
 - usunac: Behawiorystyka i trening oparte na emocjach i komunikacji
 - usunac: Jestem Martyna Dziemidowicz – behawiorystką i trenerką psów. Pomagam budować głęboką relację z Twoim psem, opartą na zrozumieniu jego emocji i potrzeb, bez przymusu i dominacji.
+
+
+----------------------
+- eksperymentowac z czcionkami
+- osobna strona z regulaminem
+- osobna strona dedykowana salce treningowej z Maps Embed API
+- osobna strona z galeria
+
+Header:
+- usunac link do strony glownej
+- ikony social mediow w hederze obok przycisku oferty
+- linki: salka treningowa, galeria, partnerzy
+
+Stopka:
+- link do regulaminu 
+- z social mediow usunac youtube
+- sekcja z kontaktem, w stopce
+- pod mel4dogs - martyna dziemidowicz
+
+Hero:
+- brak efektu cienia na zdjeciu
+
+Oferta:
+- kafelki - bardziej jak sekcja o mnie, klientowi zalezy by cala oferta zmiescila sie we viewport na desktopie
+
+Partnerzy:
+- sekcja z partnerami

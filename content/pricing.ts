@@ -1,6 +1,31 @@
 import type { ServicePrice, PackagePrice, PricingConfig } from "@/lib/types";
 
 /**
+ * Pricing section UI strings
+ * All user-facing text for Pricing component
+ */
+export const pricingUI = {
+  sectionHeading: "Cennik",
+  sectionDescription:
+    "Przejrzyste ceny bez ukrytych kosztów. Wybierz opcję dopasowaną do Twoich potrzeb.",
+  packagesHeading: "Pakiety (najlepsza wartość)",
+  servicesHeading: "Pojedyncze sesje",
+  highlightedBadge: "Najlepszy wybór",
+  durationLabel: "Czas trwania:",
+  sessionsLabel: "sesji",
+  perSessionLabel: "za sesję",
+  eachSessionLabel: "każda sesja",
+  savingsLabel: "Oszczędzasz",
+  contactCTA: {
+    heading: "Masz pytania o cennik?",
+    description:
+      "Skontaktuj się, aby omówić indywidualne potrzeby lub dowiedzieć się więcej o pakietach.",
+    buttonText: "Skontaktuj się",
+    buttonHref: "#contact",
+  },
+};
+
+/**
  * Individual Service Prices
  * MEL4dogs – Martyna Dziemidowicz
  *

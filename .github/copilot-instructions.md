@@ -75,11 +75,28 @@
 ### Content Management
 
 - **Content w `/content/*.ts`** - nie hardcode w komponentach
-- **NIGDY nie hardkoduj tekstów w komponentach** - wszystkie stringi przenies do `/content`
+- **NIGDY nie hardkoduj tekstów w komponentach** - wszystkie stringi przenieś do `/content`
 - **Content-first approach** - przed dodaniem tekstu do widoku, dodaj go do odpowiedniego pliku w `/content`
+- **KEEP IT SIMPLE** - dodaj UI teksty do istniejących plików (np. offersUI w offers.ts, pricingUI w pricing.ts)
+- **DRY (Don't Repeat Yourself)** - nie twórz nowych plików gdy można rozbudować istniejące
+- **Cohesion** - wszystko związane z Offers w offers.ts, z Pricing w pricing.ts, etc.
 - **Polish language** - wszystkie stringi po polsku
 - **Easy to edit** - klient może edytować bez kodu
 - **Separation of concerns** - komponenty renderują, content zawiera dane
+- **NIE TWÓRZ mikro-plików** - unikaj nadmiernej fragmentacji (np. osobny ui.ts)
+
+#### Przykład dobrej struktury:
+```typescript
+// content/offers.ts
+export const offersUI = { sectionHeading: "...", ctaButton: "..." };
+export const offers: Offer[] = [...];
+
+// components/sections/Offers.tsx
+import { offersUI, offers } from "@/content/offers";
+```
+
+❌ **ŹLE:** Tworzenie osobnego `content/ui.ts` z wszystkimi UI tekstami
+✅ **DOBRZE:** UI teksty w tym samym pliku co dane (offersUI w offers.ts)
 
 ---
 

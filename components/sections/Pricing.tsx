@@ -1,5 +1,5 @@
 import type { ServicePrice, PackagePrice } from "@/lib/types";
-import { formatPrice, formatDuration } from "@/content/pricing";
+import { formatPrice, formatDuration, pricingUI } from "@/content/pricing";
 
 interface ServicePriceCardProps {
   service: ServicePrice;
@@ -21,7 +21,7 @@ function ServicePriceCard({ service }: ServicePriceCardProps) {
             <p className="mt-1 text-sm text-gray-600">{service.description}</p>
           )}
           <p className="mt-2 text-sm text-gray-500">
-            Czas trwania: {formatDuration(service.duration)}
+            {pricingUI.durationLabel} {formatDuration(service.duration)}
           </p>
         </div>
         <div className="ml-4 text-right">
@@ -53,7 +53,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
     >
       {pkg.highlighted && (
         <div className="mb-4 inline-flex rounded-full bg-orange-600 px-3 py-1 text-xs font-semibold text-white">
-          Najlepszy wybór
+          {pricingUI.highlightedBadge}
         </div>
       )}
 
@@ -82,7 +82,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
               clipRule="evenodd"
             />
           </svg>
-          <span>{pkg.sessionsCount} sesji</span>
+          <span>{pkg.sessionsCount} {pricingUI.sessionsLabel}</span>
         </li>
         <li className="flex items-center gap-2">
           <svg
@@ -97,7 +97,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
               clipRule="evenodd"
             />
           </svg>
-          <span>{formatDuration(pkg.sessionDuration)} każda sesja</span>
+          <span>{formatDuration(pkg.sessionDuration)} {pricingUI.eachSessionLabel}</span>
         </li>
         <li className="flex items-center gap-2">
           <svg
@@ -112,7 +112,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
               clipRule="evenodd"
             />
           </svg>
-          <span>{formatPrice(pkg.pricePerSession)} za sesję</span>
+          <span>{formatPrice(pkg.pricePerSession)} {pricingUI.perSessionLabel}</span>
         </li>
         {pkg.savings && pkg.savings > 0 && (
           <li className="flex items-center gap-2 font-semibold text-green-600">
@@ -128,7 +128,7 @@ function PackagePriceCard({ package: pkg }: PackagePriceCardProps) {
                 clipRule="evenodd"
               />
             </svg>
-            <span>Oszczędzasz {formatPrice(pkg.savings)}</span>
+            <span>{pricingUI.savingsLabel} {formatPrice(pkg.savings)}</span>
           </li>
         )}
       </ul>
@@ -151,8 +151,8 @@ interface PricingProps {
 export function Pricing({
   services,
   packages,
-  heading = "Cennik",
-  description = "Przejrzyste ceny bez ukrytych kosztów. Wybierz opcję dopasowaną do Twoich potrzeb.",
+  heading = pricingUI.sectionHeading,
+  description = pricingUI.sectionDescription,
 }: PricingProps) {
   return (
     <section
@@ -178,7 +178,7 @@ export function Pricing({
         {packages.length > 0 && (
           <div className="mt-12">
             <h3 className="mb-6 text-xl font-bold text-gray-900">
-              Pakiety (najlepsza wartość)
+              {pricingUI.packagesHeading}
             </h3>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {packages.map((pkg) => (
@@ -192,7 +192,7 @@ export function Pricing({
         {services.length > 0 && (
           <div className="mt-12">
             <h3 className="mb-6 text-xl font-bold text-gray-900">
-              Pojedyncze sesje
+              {pricingUI.servicesHeading}
             </h3>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
@@ -205,17 +205,16 @@ export function Pricing({
         {/* Contact CTA */}
         <div className="mt-16 rounded-2xl border-2 border-orange-200 bg-white p-8 text-center">
           <h3 className="text-xl font-bold text-gray-900">
-            Masz pytania o cennik?
+            {pricingUI.contactCTA.heading}
           </h3>
           <p className="mt-2 text-gray-600">
-            Skontaktuj się, aby omówić indywidualne potrzeby lub dowiedzieć się
-            więcej o pakietach.
+            {pricingUI.contactCTA.description}
           </p>
           <a
-            href="#contact"
+            href={pricingUI.contactCTA.buttonHref}
             className="mt-6 inline-block rounded-full bg-orange-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
           >
-            Skontaktuj się
+            {pricingUI.contactCTA.buttonText}
           </a>
         </div>
       </div>

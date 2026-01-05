@@ -1,6 +1,20 @@
 import type { Offer, HeroContent, Testimonial, FAQItem } from "@/lib/types";
 
 /**
+ * Offers section UI strings
+ * All user-facing text for Offers component
+ */
+export const offersUI = {
+  sectionHeading: "Nasze Usługi",
+  sectionDescription:
+    "Profesjonalne szkolenia dostosowane do potrzeb Twojego psa. Indywidualne podejście i sprawdzone metody.",
+  highlightedBadge: "Polecane",
+  pricePrefix: "od",
+  priceSuffix: "PLN",
+  ctaButton: "Umów", // + offer.title
+};
+
+/**
  * Hero section content
  * Main headline and CTA on homepage
  */

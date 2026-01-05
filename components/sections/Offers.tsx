@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Offer } from "@/lib/types";
 import { getMinPriceFromIds } from "@/content/pricing";
+import { offersUI } from "@/content/offers";
 
 interface OfferAccordionItemProps {
   offer: Offer;
@@ -75,7 +76,7 @@ function OfferAccordionItem({
           </h3>
           {minPrice && (
             <p className="mt-1 text-sm text-gray-600">
-              <span className="text-orange-600 font-semibold">od {minPrice} PLN</span>
+              <span className="text-orange-600 font-semibold">{offersUI.pricePrefix} {minPrice} {offersUI.priceSuffix}</span>
             </p>
           )}
         </div>
@@ -134,7 +135,7 @@ function OfferAccordionItem({
             onClick={handleBooking}
             className="mt-6 w-full rounded-full bg-orange-600 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
           >
-            Umów {offer.title}
+            {offersUI.ctaButton} {offer.title}
           </button>
         </div>
       )}
@@ -173,7 +174,7 @@ function HighlightedOffer({ offer }: HighlightedOfferProps) {
   return (
     <article className="rounded-2xl border-2 border-orange-600 bg-gradient-to-br from-orange-50 to-teal-50 p-6 shadow-xl ring-2 ring-orange-600 ring-offset-2 sm:p-8">
       <div className="mb-4 inline-flex rounded-full bg-orange-600 px-3 py-1 text-xs font-semibold text-white">
-        Polecane
+        {offersUI.highlightedBadge}
       </div>
 
       {/* Image placeholder */}
@@ -189,9 +190,9 @@ function HighlightedOffer({ offer }: HighlightedOfferProps) {
 
       {minPrice && (
         <div className="mt-4 flex items-baseline gap-2">
-          <span className="text-sm text-gray-600">od</span>
+          <span className="text-sm text-gray-600">{offersUI.pricePrefix}</span>
           <span className="text-4xl font-bold text-orange-600">{minPrice}</span>
-          <span className="text-sm text-gray-600">PLN</span>
+          <span className="text-sm text-gray-600">{offersUI.priceSuffix}</span>
         </div>
       )}
 
@@ -228,7 +229,7 @@ function HighlightedOffer({ offer }: HighlightedOfferProps) {
         onClick={handleBooking}
         className="mt-8 w-full rounded-full bg-orange-600 py-4 text-center text-base font-semibold text-white shadow-lg transition-all hover:bg-orange-700 hover:shadow-xl focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
       >
-        Umów {offer.title}
+        {offersUI.ctaButton} {offer.title}
       </button>
     </article>
   );
@@ -268,11 +269,10 @@ export function Offers({ offers }: OffersProps) {
             id="offers-heading"
             className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"
           >
-            Nasze Usługi
+            {offersUI.sectionHeading}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            Profesjonalne szkolenia dostosowane do potrzeb Twojego psa.
-            Indywidualne podejście i sprawdzone metody.
+            {offersUI.sectionDescription}
           </p>
         </div>
 
