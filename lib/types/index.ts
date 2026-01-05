@@ -112,6 +112,7 @@ export interface HeroContent {
  */
 export interface FooterContent {
   tagline: string;
+  ownerName: string;
   copyright: string;
   sections: {
     title: string;

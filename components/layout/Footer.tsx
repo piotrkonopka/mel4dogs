@@ -27,8 +27,11 @@ export function Footer() {
               aria-label="MEL4 dogs - strona główna"
             >
               <span className="text-orange-600">MEL4</span>{" "}
-              <span className="text-teal-500">dogs</span>
+              <span className="text-teal-700">dogs</span>
             </Link>
+            <p className="mt-2 text-sm text-gray-400">
+              {footerContent.ownerName}
+            </p>
             <p className="mt-4 text-sm leading-relaxed">
               {footerContent.tagline}
             </p>

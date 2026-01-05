@@ -90,6 +90,7 @@ export const socialLinks: SocialLink[] = [
  */
 export const footerContent: FooterContent = {
   tagline: "Budujemy lepsze relacje między psami i ich opiekunami.",
+  ownerName: "Martyna Dziemidowicz",
   copyright: `© ${new Date().getFullYear()} MEL4 dogs. Wszelkie prawa zastrzeżone.`,
   sections: [
     {
@@ -111,6 +112,25 @@ export const footerContent: FooterContent = {
         { label: "Moje podejście", href: "/#values" },
         { label: "Historie sukcesu", href: "/#testimonials" },
         { label: "FAQ", href: "/#contact" },
+      ],
+    },
+    {
+      title: "Kontakt",
+      links: [
+        { label: contactInfo.email, href: `mailto:${contactInfo.email}` },
+        ...(contactInfo.phone
+          ? [{ label: contactInfo.phone, href: `tel:${contactInfo.phone}` }]
+          : []),
+        ...(contactInfo.address
+          ? [
+              {
+                label: `${contactInfo.address.street}, ${contactInfo.address.city}`,
+                href: `https://maps.google.com/?q=${encodeURIComponent(
+                  `${contactInfo.address.street}, ${contactInfo.address.postalCode} ${contactInfo.address.city}`
+                )}`,
+              },
+            ]
+          : []),
       ],
     },
   ],
