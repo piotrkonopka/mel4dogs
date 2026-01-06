@@ -285,7 +285,7 @@ export function cn(...classes): string;
 ```typescript
 // content/site.ts - Contact info defined once
 export const contactInfo = {
-  email: "kontakt@mel4dogs.pl",
+  email: "martyna@mel4dogs.pl",
   phone: "123-456-789",
   address: "ul. Świeradowska 47, Wrocław",
 };

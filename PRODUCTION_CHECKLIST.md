@@ -5,7 +5,7 @@
 **Assumptions:**
 
 - ✅ Domain purchased and DNS accessible
-- ✅ Email configured (kontakt@mel4dogs.pl)
+- ✅ Email configured (martyna@mel4dogs.pl)
 - ✅ Next.js site built and tested locally
 - ✅ Firebase Functions ready (if using backend)
 

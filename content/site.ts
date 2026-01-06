@@ -57,7 +57,7 @@ export const navigation: NavItem[] = [
  * Displayed in footer and contact section
  */
 export const contactInfo: ContactInfo = {
-  email: "kontakt@mel4dogs.pl",
+  email: "martyna@mel4dogs.pl",
   phone: "+48 123 456 789",
   address: {
     street: "ul. Świeradowska 47",

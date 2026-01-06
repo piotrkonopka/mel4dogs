@@ -4,16 +4,23 @@ import { contactForm, contactSection } from "@/content/contact";
 import { useContactForm } from "@/lib/hooks/useContactForm";
 
 /**
- * Contact form with client-side validation
- * Uses mailto: to open email client with pre-filled data
+ * Contact Form Component
+ * Professional contact form with Web3Forms integration
  *
  * Features:
+ * - Web3Forms API integration for reliable form submissions
  * - Client-side validation with Polish locale
+ * - Async submission without page reload (AJAX-style)
+ * - Honeypot spam protection (botcheck field)
  * - Accessible ARIA labels and error messages
  * - Screen reader announcements
- * - Graceful error handling
- * - No backend required - fully static
- * - GDPR compliant - no data transmission over network
+ * - Loading states with visual feedback
+ * - Success/error messages with auto-dismiss
+ * - Graceful error handling with fallback options
+ * - Clean, modern UI matching site design
+ *
+ * @see https://docs.web3forms.com/ - Web3Forms documentation
+ * @see /lib/config/web3forms.ts - Configuration file
  */
 export function ContactForm() {
   const {
@@ -431,6 +438,17 @@ export function ContactForm() {
                   </p>
                 )}
               </div>
+
+              {/* Honeypot spam protection (hidden from users, visible to bots) */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
 
               {/* Submit Button */}
               <button

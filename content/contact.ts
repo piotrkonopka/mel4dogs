@@ -70,14 +70,14 @@ export const contactForm = {
     loadingText: "Wysyłanie...",
   },
   successMessage: {
-    title: "Wiadomość wysłana pomyślnie!",
+    title: "Wiadomość wysłana!",
     description:
-      "Dziękuję za kontakt. Odezwę się w ciągu 24 godzin, aby omówić Twoje potrzeby i umówić konsultację.",
+      "Dziękuję za kontakt. Odezwę się najszybciej jak to możliwe, zazwyczaj w ciągu 24 godzin.",
   },
   errorMessage: {
-    title: "Coś poszło nie tak",
+    title: "Nie udało się wysłać formularza",
     description:
-      "Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio przez email lub telefon.",
+      "Spróbuj ponownie za chwilę. Jeśli problem się powtarza, skontaktuj się bezpośrednio przez email lub telefon.",
   },
 } as const;
 
@@ -151,8 +151,8 @@ export const contactSection = {
     {
       type: "email",
       label: "Email",
-      value: "kontakt@mel4dogs.pl",
-      href: "mailto:kontakt@mel4dogs.pl",
+      value: "martyna@mel4dogs.pl",
+      href: "mailto:martyna@mel4dogs.pl",
       icon: "mail",
     },
     {

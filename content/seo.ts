@@ -227,7 +227,7 @@ export const localBusinessSchema = {
     "Behawiorystka i trenerka psów we Wrocławiu. Praca z empatią, bez dominacji. Konsultacje behawioralne, nosework, spacery socjalizacyjne.",
   url: siteInfo.url,
   telephone: "+48123456789",
-  email: "kontakt@mel4dogs.pl",
+  email: "martyna@mel4dogs.pl",
   priceRange: "80-240 PLN",
   address: {
     "@type": "PostalAddress",

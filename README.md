@@ -5,9 +5,9 @@ Profesjonalna strona internetowa dla trenera psów - w 100% statyczna, bez backe
 ## 🎯 Kluczowe Założenia
 
 - **100% Statyczna** - `output: "export"`, brak server-side logic
-- **Bez Backendu** - formularz kontaktowy przez `mailto:`
-- **Zgodna z GDPR** - brak cookies, brak trackingu, brak zbierania danych
-- **Darmowa** - wszystkie usługi w free tier
+- **Bez Backendu** - formularz kontaktowy przez Web3Forms API
+- **Zgodna z GDPR** - Web3Forms jest GDPR compliant, brak trackingu
+- **Darmowa** - wszystkie usługi w free tier (250 submissions/miesiąc)
 - **Polski język** - cała zawartość po polsku
 
 ## 🛠 Tech Stack
@@ -15,6 +15,7 @@ Profesjonalna strona internetowa dla trenera psów - w 100% statyczna, bez backe
 - **Framework**: Next.js 16.1.1 (App Router, Static Export)
 - **Language**: TypeScript 5.x (strict mode)
 - **Styling**: Tailwind CSS 4.x
+- **Forms**: Web3Forms (free tier - 250/mo)
 - **Code Quality**: ESLint 9 + Prettier
 - **Git Hooks**: Husky + lint-staged
 - **Hosting**: Firebase Hosting (darmowy tier)
@@ -106,35 +107,40 @@ export const pricingItems: PricingItem[] = [
 
 ## 📧 Formularz Kontaktowy
 
-Formularz **nie wysyła danych przez backend**. Zamiast tego:
+Formularz używa **Web3Forms** - profesjonalnej usługi do obsługi formularzy dla stron statycznych.
 
-1. Użytkownik wypełnia formularz
-2. Walidacja client-side (Polski język)
-3. Klik "Wyślij" → otwiera klienta email z pre-filled data
-4. Użytkownik wysyła email ręcznie
+### Quick Setup (5 minut):
 
-**Dlaczego mailto?**
+1. **Uzyskaj Access Key**: https://web3forms.com/#start
+2. **Dodaj do config**: `/lib/config/web3forms.ts`
+3. **Test**: `npm run dev` → http://localhost:3000/#contact
 
-- ✅ Brak backendu = brak kosztów
-- ✅ Zgodne z GDPR - dane nie są przesyłane przez sieć
-- ✅ Proste - działa zawsze
-- ✅ Bezpieczne - brak zewnętrznych serwisów
+### Features:
+
+- ✅ **AJAX submission** - bez reload strony
+- ✅ **Email notifications** - natychmiastowe
+- ✅ **Spam protection** - honeypot + server-side filtering
+- ✅ **GDPR compliant** - Web3Forms jest zgodny z RODO
+- ✅ **Free tier** - 250 submissions/miesiąc
+- ✅ **30-day archive** - historia w dashboard
+- ✅ **Loading states** - visual feedback dla użytkownika
+
+📚 **Szczegóły:** [WEB3FORMS_README.md](./WEB3FORMS_README.md)
 
 ## 🔒 GDPR & Privacy
 
 **Status:** ✅ W pełni zgodne
 
+- **Web3Forms** - GDPR compliant, dane szyfrowane
 - **Brak cookies** - żadne ciasteczka nie są ustawiane
 - **Brak trackingu** - brak Google Analytics, brak Facebook Pixel
 - **Brak zewnętrznych skryptów** - tylko Google Fonts (dozwolone)
-- **Formularz mailto** - dane nie są wysyłane przez sieć
 - **Statyczne obrazy** - wszystko z własnego hostingu
 
-**Nie wymaga:**
+**Zalecane (opcjonalne):**
 
-- Bannera cookie
-- Polityki prywatności (opcjonalna)
-- Zgód GDPR
+- Strona Privacy Policy - info o Web3Forms
+- Link w footerze do polityki prywatności
 
 ## 🎨 Customization
 
@@ -260,5 +266,5 @@ A: Tak, responsive design (mobile-first).
 
 ---
 
-**Kontakt:** kontakt@mel4dogs.pl  
+**Kontakt:** martyna@mel4dogs.pl  
 **Built with:** Next.js 16, TypeScript, Tailwind CSS

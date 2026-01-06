@@ -287,7 +287,7 @@ firebase deploy --only hosting
 
 Dla pytań technicznych lub zmian w projekcie:
 
-- Email: kontakt@mel4dogs.pl
+- Email: martyna@mel4dogs.pl
 - GitHub: (link to repo)
 
 ---
