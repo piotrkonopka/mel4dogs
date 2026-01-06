@@ -10,7 +10,7 @@ import { heroContent } from "@/content/offers";
 export function Hero() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-teal-50 pt-20 md:pt-24"
+      className="relative overflow-hidden bg-white pt-20 md:pt-24"
       aria-labelledby="hero-heading"
     >
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">

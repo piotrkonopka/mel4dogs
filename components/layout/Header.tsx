@@ -94,10 +94,10 @@ export function Header() {
 
             {/* CTA Button */}
             <Link
-              href="#services"
+              href="#contact"
               className="rounded-full bg-orange-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:outline-none"
             >
-              Oferta
+              Umów konsultację
             </Link>
           </div>
 
@@ -203,11 +203,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="#services"
+              href="#contact"
               className="mt-4 block rounded-full bg-orange-600 px-6 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-orange-700"
               onClick={() => setIsMenuOpen(false)}
             >
-              Oferta
+              Umów konsultację
             </Link>
           </nav>
         </div>
